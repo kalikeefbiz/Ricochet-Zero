@@ -73,9 +73,11 @@ Projectiles retain a seven-second lifetime, sixteen-reflection ceiling, inherite
 
 ## Repository and hosting
 
-Dedicated repository: `BlackHouse-Ricochet-Zero`, synchronized to its own managed Git source and private Codex Site. `.openai/hosting.json` retains the existing project identity. No main BlackHouse website or other game repository is used. The connected GitHub integration previously rejected repository creation; the named local and managed repositories remain the delivery source.
+Source: [kalikeefbiz/Ricochet-Zero](https://github.com/kalikeefbiz/Ricochet-Zero), branch `main`. The complete development history, standalone game, tests and campaign validation are included.
 
-The dedicated preview is owner-private. No changes are deployed to `blackhouse.fun`.
+Public game: **https://ricochet-zero.blackhouse.fun/**. Its dedicated Cloudflare Pages project, `blackhouse-ricochet-zero`, tracks GitHub `main` and publishes `dist/` without a build command. No runtime service or API is required. Pushes to `main` automatically redeploy the game; other branches receive Pages previews. The BlackHouse Games listing links to this public address. Game source remains separate from the main website and other game repositories.
+
+The original managed Git source and owner-private Codex preview are retained; `.openai/hosting.json` preserves that preview's project identity. Public deployment was explicitly authorized by the founder on 2026-10-23. Browser saves remain local to their origin; progress from the private preview is not transferred across domains.
 
 ## Verification limits
 
