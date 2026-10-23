@@ -1,0 +1,332 @@
+[
+  {
+    "id": 1,
+    "name": "First light",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.043125000000000004,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 2,
+    "name": "A different angle",
+    "solved": true,
+    "offset": -0.00825,
+    "marginRadians": 0.033375,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 3,
+    "name": "The turning point",
+    "solved": true,
+    "offset": 0.02325,
+    "marginRadians": 0.040125,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 4,
+    "name": "Through line",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.043125000000000004,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 5,
+    "name": "Sidewinder",
+    "solved": true,
+    "offset": -0.00525,
+    "marginRadians": 0.02925,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 6,
+    "name": "Double take",
+    "solved": true,
+    "offset": 0.0225,
+    "marginRadians": 0.027375,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 7,
+    "name": "Change of mind",
+    "solved": true,
+    "offset": 0.0225,
+    "marginRadians": 0.037875,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 8,
+    "name": "Cross current",
+    "solved": true,
+    "offset": 0.02325,
+    "marginRadians": 0.027,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 9,
+    "name": "Switchback",
+    "solved": true,
+    "offset": 0.0225,
+    "marginRadians": 0.021,
+    "shots": 1,
+    "bounces": 3,
+    "perfect": true
+  },
+  {
+    "id": 10,
+    "name": "Counterweight",
+    "solved": true,
+    "offset": -0.0225,
+    "marginRadians": 0.026625,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 11,
+    "name": "Reinforced",
+    "solved": true,
+    "offset": 0.0165,
+    "marginRadians": 0.034125,
+    "shots": 2,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 12,
+    "name": "Prism corridor",
+    "solved": true,
+    "offset": -0.02625,
+    "marginRadians": 0.0225,
+    "shots": 1,
+    "bounces": 3,
+    "perfect": true
+  },
+  {
+    "id": 13,
+    "name": "Dead zone",
+    "solved": true,
+    "offset": 0.0165,
+    "marginRadians": 0.0315,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 14,
+    "name": "Pendulum",
+    "solved": true,
+    "offset": 0.01875,
+    "marginRadians": 0.033,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 15,
+    "name": "Open window",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.040875,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 16,
+    "name": "Interlock",
+    "solved": true,
+    "offset": 0.024,
+    "marginRadians": 0.026625,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 17,
+    "name": "Twice as bright",
+    "solved": true,
+    "offset": -0.021,
+    "marginRadians": 0.036375,
+    "shots": 2,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 18,
+    "name": "Narrow escape",
+    "solved": true,
+    "offset": 0.021750000000000002,
+    "marginRadians": 0.025125,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 19,
+    "name": "Divide the light",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.081375,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 20,
+    "name": "Domino effect",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.067125,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 21,
+    "name": "Twin circuit",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.088875,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 22,
+    "name": "Resonance",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.092625,
+    "shots": 2,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 23,
+    "name": "Threefold",
+    "solved": true,
+    "offset": 0.00075,
+    "marginRadians": 0.0855,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 24,
+    "name": "Cascade chamber",
+    "solved": true,
+    "offset": 0.025500000000000002,
+    "marginRadians": 0.042375,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 25,
+    "name": "Fault line",
+    "solved": true,
+    "offset": 0.0225,
+    "marginRadians": 0.02625,
+    "shots": 1,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 26,
+    "name": "Phase shift",
+    "solved": true,
+    "offset": -0.01875,
+    "marginRadians": 0.035250000000000004,
+    "shots": 2,
+    "bounces": 2,
+    "perfect": true
+  },
+  {
+    "id": 27,
+    "name": "Critical mass",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.049125,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 28,
+    "name": "Event horizon",
+    "solved": true,
+    "offset": 0.021750000000000002,
+    "marginRadians": 0.027375,
+    "shots": 2,
+    "bounces": 4,
+    "perfect": true
+  },
+  {
+    "id": 29,
+    "name": "The last angle",
+    "solved": true,
+    "offset": -0.02475,
+    "marginRadians": 0.021375,
+    "shots": 2,
+    "bounces": 6,
+    "perfect": true
+  },
+  {
+    "id": 30,
+    "name": "Zero point",
+    "solved": true,
+    "offset": 0.04725,
+    "marginRadians": 0.019125,
+    "shots": 2,
+    "bounces": 3,
+    "perfect": true
+  },
+  {
+    "id": 31,
+    "name": "Needlework",
+    "solved": true,
+    "offset": 0.0195,
+    "marginRadians": 0.0225,
+    "shots": 1,
+    "bounces": 1,
+    "perfect": true
+  },
+  {
+    "id": 32,
+    "name": "Chain of command",
+    "solved": true,
+    "offset": 0,
+    "marginRadians": 0.045375,
+    "shots": 1,
+    "bounces": 0,
+    "perfect": true
+  },
+  {
+    "id": 33,
+    "name": "Absolute zero",
+    "solved": true,
+    "offset": -0.02325,
+    "marginRadians": 0.01725,
+    "shots": 1,
+    "bounces": 3,
+    "perfect": true
+  }
+]

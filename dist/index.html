@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#080f14" />
+    <meta
+      name="description"
+      content="Ricochet Zero by BlackHouse Arcade. Aim. Fire. Ricochet. Clear. 30 precision arenas. Every angle matters."
+    />
+    <title>RICOCHET ZERO — BlackHouse Arcade</title>
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+    <div id="app">
+      <header class="masthead">
+        <button
+          class="brand"
+          id="home-button"
+          aria-label="BlackHouse Arcade home"
+        >
+          <span class="brandmark" aria-hidden="true"><i></i></span
+          ><span>BLACKHOUSE<span class="brand-sub">ARCADE DIVISION</span></span>
+        </button>
+        <div class="header-center">
+          <span class="live-dot"></span> INDEPENDENT BY DESIGN
+        </div>
+        <div class="header-actions">
+          <button
+            class="icon-button"
+            id="sound-button"
+            aria-label="Mute sound"
+            title="Toggle sound"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M4 9v6h4l5 4V5L8 9H4zm12-1c3 2 3 6 0 8m3-11c5 4 5 10 0 14"
+              />
+            </svg></button
+          ><button
+            class="icon-button"
+            id="settings-button"
+            aria-label="Settings"
+            title="Settings"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M4 7h16M4 17h16M8 4v6m8 4v6" />
+            </svg>
+          </button>
+        </div>
+      </header>
+      <main>
+        <section id="title-screen" class="screen">
+          <div class="title-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">
+                <span class="tiny-square"></span> BLACKHOUSE ORIGINAL
+                <span class="edition">/ 001</span>
+              </div>
+              <h1>
+                <span>RICOCHET</span
+                ><strong
+                  >ZER<span class="zero">O</span
+                  ><span class="title-period">.</span></strong
+                >
+              </h1>
+              <p class="tagline">Every angle matters.</p>
+              <p class="hero-description">
+                One launcher. Endless possibilities.<br />Find the perfect line
+                through 30 precision arenas.
+              </p>
+              <div class="hero-actions">
+                <button id="start-button" class="button primary">
+                  <span class="play-icon">▶</span
+                  ><span id="start-label">START CAMPAIGN</span
+                  ><span class="button-arrow">↗</span></button
+                ><button id="select-button" class="button secondary">
+                  SELECT LEVEL <span>↗</span>
+                </button>
+              </div>
+              <div class="hero-progress" id="hero-progress"></div>
+              <div class="input-note">
+                <span class="input-icon">↗</span> DRAG TO AIM <i>·</i> RELEASE
+                TO FIRE <i>·</i> MAKE IT COUNT
+              </div>
+            </div>
+            <div
+              class="hero-visual"
+              aria-label="Animated ricochet arena illustration"
+            >
+              <div class="visual-top">
+                <span><i class="live-dot"></i> TRAJECTORY STUDY</span
+                ><span>FIG. 001</span>
+              </div>
+              <div class="hero-arena">
+                <canvas id="hero-canvas" aria-hidden="true"></canvas>
+                <div class="diagram-note note-one">
+                  01 <span>INCIDENT</span>
+                </div>
+                <div class="diagram-note note-two">
+                  02 <span>REFLECTED</span>
+                </div>
+              </div>
+              <div class="visual-bottom">
+                <span>θi = θr</span
+                ><span>PRECISION IS EVERYTHING <b>+</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="title-bottom">
+            <div>
+              <strong>30</strong><span>HANDCRAFTED<br />ARENAS</span>
+            </div>
+            <div>
+              <strong>05</strong><span>DIFFICULTY<br />SECTORS</span>
+            </div>
+            <div>
+              <strong>∞</strong><span>WAYS TO<br />FIND YOUR LINE</span>
+            </div>
+            <button id="how-button" class="text-button">
+              HOW TO PLAY <span>↗</span>
+            </button>
+          </div>
+        </section>
+        <section id="levels-screen" class="screen hidden">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow">THE CAMPAIGN / 30 ARENAS</div>
+              <h2>Find your line<span>.</span></h2>
+            </div>
+            <button class="button secondary compact" data-action="home">
+              ← BACK
+            </button>
+          </div>
+          <div class="campaign-summary" id="campaign-summary"></div>
+          <div id="tier-list"></div>
+          <div class="challenge-heading">
+            <span class="eyebrow">BEYOND THE CIRCUIT</span>
+            <h3>Zero-margin challenges</h3>
+            <p>Three extra arenas. One shot each. Earn your way in.</p>
+          </div>
+          <div id="challenge-list" class="challenge-list"></div>
+        </section>
+        <section id="game-screen" class="screen hidden">
+          <div class="game-topline">
+            <button class="text-button" id="game-levels">← ARENAS</button
+            ><span id="sector-label">01 / INITIATION</span
+            ><button class="text-button" id="pause-button">
+              PAUSE <span>Ⅱ</span>
+            </button>
+          </div>
+          <div class="game-layout">
+            <aside class="level-brief">
+              <div class="eyebrow">CURRENT ARENA</div>
+              <div class="level-number" id="large-level">
+                01<span>/30</span>
+              </div>
+              <h2 id="side-name">First light</h2>
+              <div class="rule"></div>
+              <p id="side-hint"></p>
+              <div class="objective-label">PERFECT CLEAR</div>
+              <p id="perfect-description" class="small-text"></p>
+              <div class="best-block" id="level-best"></div>
+            </aside>
+            <div class="play-column">
+              <div class="arena-hud">
+                <div>
+                  <span class="hud-label">SHOTS REMAINING</span>
+                  <div id="shot-dots" class="shot-dots"></div>
+                </div>
+                <div class="target-hud">
+                  <span class="hud-label">TARGETS</span
+                  ><strong id="targets-counter">01<span>/01</span></strong>
+                </div>
+              </div>
+              <div id="arena-frame">
+                <canvas
+                  id="game-canvas"
+                  aria-label="Ricochet arena. Drag to aim, release to fire. Tap violet mirrors to rotate."
+                  tabindex="0"
+                ></canvas>
+                <div class="arena-intro" id="arena-intro">
+                  <span id="intro-tier"></span><strong id="intro-name"></strong>
+                </div>
+                <div
+                  class="arena-status"
+                  id="arena-status"
+                  aria-live="polite"
+                ></div>
+              </div>
+              <div class="aim-readout">
+                <span
+                  ><i class="live-dot"></i>
+                  <span id="action-status">LAUNCHER READY</span></span
+                ><span id="angle-readout">270.0°</span>
+              </div>
+              <div class="game-controls">
+                <button class="button secondary compact" id="restart-button">
+                  <span>↻</span> RESTART
+                </button>
+                <div class="mirror-controls" id="mirror-controls"></div>
+                <button
+                  class="button secondary compact hidden"
+                  id="recall-button"
+                >
+                  RECALL <span>↓</span></button
+                ><button
+                  class="icon-button help-button"
+                  id="hint-button"
+                  aria-label="Level hint"
+                >
+                  ?
+                </button>
+              </div>
+              <p class="mobile-hint" id="mobile-hint"></p>
+            </div>
+            <aside class="field-guide">
+              <div class="eyebrow">FIELD NOTES / RZ</div>
+              <h3>Aim.<br />Fire.<br /><span>Ricochet.</span><br />Clear.</h3>
+              <div class="rule"></div>
+              <div class="legend-item">
+                <i class="legend-line cyan"></i>
+                <div>REFLECTIVE<span>Equal in. Equal out.</span></div>
+              </div>
+              <div class="legend-item">
+                <i class="legend-target"></i>
+                <div>TARGET<span>Clear every core.</span></div>
+              </div>
+              <div class="legend-item">
+                <i class="legend-line purple"></i>
+                <div>ADJUSTABLE<span>Tap to rotate 15°.</span></div>
+              </div>
+              <div class="keyboard-note">
+                <kbd>←</kbd><kbd>→</kbd> Aim <kbd>SPACE</kbd> Fire<br /><kbd
+                  >R</kbd
+                >
+                Restart <kbd>ESC</kbd> Pause
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <span>© <span id="year">2026</span> BLACKHOUSE</span
+        ><span>BUILT FOR THE NEXT ATTEMPT.</span
+        ><button id="credits-button">CREDITS ↗</button>
+      </footer>
+    </div>
+    <div
+      id="modal-root"
+      class="modal-root hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    ></div>
+    <div id="toast" class="toast" role="status"></div>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

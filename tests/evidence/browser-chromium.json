@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "Title and starting gameplay",
+    "Drag aiming, live firing, targets, three-star result and unlocking",
+    "Level-select lock state",
+    "Progress saved and restored after reload",
+    "Misses, exhausted shot budget, and failure screen",
+    "Retry, restart button and R keyboard shortcut",
+    "Pause freezes simulation; settings persist and resume works",
+    "Player-rotatable mirrors through accessible controls",
+    "All 30 arenas completed through real mouse shots and next-level progression",
+    "Final campaign completion and statistics",
+    "All optional challenges unlock",
+    "All three optional challenges cleared through mouse input",
+    "Campaign records and settings survive reload",
+    "Arrow-key aiming and Space firing complete a level",
+    "Mobile touch drag fires and clears an arena (native CDP touch)",
+    "390×844, 375×667, 320×568 and 430×932 mobile layouts and touch target sizes",
+    "Direct touch on a mirror rotates it without an accidental shot",
+    "No browser JavaScript errors"
+  ],
+  "errors": [],
+  "engine": "chromium"
+}
