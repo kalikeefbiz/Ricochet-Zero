@@ -15,7 +15,8 @@ export const STEP = 1 / 120,
   SPEED = 430,
   MAX_BOUNCES = 16,
   LIFETIME = 7,
-  RADIUS = 2.5;
+  RADIUS = 2.5,
+  MIRROR_HALF = 2;
 const walls = [
   { id: "w0", a: { x: 16, y: 16 }, b: { x: 344, y: 16 } },
   { id: "w1", a: { x: 344, y: 16 }, b: { x: 344, y: 504 } },
@@ -36,6 +37,10 @@ export class Arena {
     this.time = 0;
     this.shots = 0;
     this.bounces = 0;
+    this.mirrorBounces = 0;
+    this.wallBounces = 0;
+    this.precisionTotal = 0;
+    this.aimHits = 0;
     this.hits = 0;
     this.misses = 0;
     this.shotHits = 0;
@@ -75,15 +80,36 @@ export class Arena {
       d: { ...d },
       age: source?.age || 0,
       bounces: source?.bounces || 0,
+      mirrorBounces: source?.mirrorBounces || 0,
+      wallBounces: source?.wallBounces || 0,
       hit: new Set(source?.hit || []),
       split: new Set(source?.split || []),
       trail: [{ x: p.x, y: p.y }],
       alive: true,
     };
   }
-  hitTarget(t, p) {
+  hitTarget(t, p, direct = true) {
     if (t.hp <= 0 || (t.initialHp > 1 && t.lastShot === this.shots)) return;
     t.lastShot = this.shots;
+    const precision = direct
+      ? Math.max(
+          0,
+          1 -
+            Math.abs((t.x - p.x) * p.d.y - (t.y - p.y) * p.d.x) /
+              (t.r + RADIUS),
+        )
+      : null;
+    (t.routes ??= []).push({
+      shot: this.shots,
+      mirrors: p.mirrorBounces || 0,
+      walls: p.wallBounces || 0,
+      direct,
+      precision,
+    });
+    if (direct) {
+      this.aimHits++;
+      this.precisionTotal += precision;
+    }
     t.hp--;
     this.hits++;
     this.shotHits++;
@@ -92,7 +118,7 @@ export class Arena {
       this.emit("chain", t, { radius: t.chain });
       for (const other of this.targets)
         if (other.hp > 0 && distance(t, other) <= t.chain)
-          this.hitTarget(other, p);
+          this.hitTarget(other, p, false);
     }
   }
   collision(p, max) {
@@ -104,12 +130,20 @@ export class Arena {
       consider(rayCapsule(p, p.d, w.a, w.b, RADIUS, max), "reflect", w);
     for (const m of this.mirrors) {
       const [a, b] = endpoints(m, this.time);
-      consider(rayCapsule(p, p.d, a, b, RADIUS + 2, max), "reflect", m);
+      consider(
+        rayCapsule(p, p.d, a, b, RADIUS + MIRROR_HALF, max),
+        "reflect",
+        m,
+      );
     }
     for (const b of this.level.barriers || []) {
       if (b.period && gateOpen(b, this.time)) continue;
       const [a, z] = endpoints(b, this.time);
-      consider(rayCapsule(p, p.d, a, z, RADIUS + 4, max), "absorb", b);
+      consider(
+        rayCapsule(p, p.d, a, z, RADIUS + (b.halfWidth ?? 4), max),
+        "absorb",
+        b,
+      );
     }
     for (const s of this.level.splitters || [])
       if (!p.split.has(s.id))
@@ -158,7 +192,19 @@ export class Arena {
           p.bounces++;
           this.bounces++;
           this.shotBounces++;
-          this.emit("reflect", p);
+          const mirror =
+            this.mirrors.includes(hit.obj) && hit.obj.kind !== "wall";
+          if (mirror) {
+            p.mirrorBounces++;
+            this.mirrorBounces++;
+          } else {
+            p.wallBounces++;
+            this.wallBounces++;
+          }
+          this.emit("reflect", p, {
+            surface: mirror ? "mirror" : "wall",
+            id: hit.obj.id,
+          });
           if (p.bounces >= MAX_BOUNCES) {
             p.alive = false;
             this.emit("expire", p);
@@ -274,26 +320,38 @@ export function preview(arena, direction, maxDistance = 900) {
   return paths;
 }
 export function rating(arena) {
+  const accuracy = arena.aimHits ? arena.precisionTotal / arena.aimHits : 0;
+  const reflectionMastery = arena.targets.every(
+    (t) =>
+      t.routes?.length &&
+      t.routes.every((r) => r.mirrors >= (arena.level.requiredMirrors || 0)),
+  );
+  const efficient = arena.shots <= arena.level.par && arena.misses === 0;
   const stars =
-    arena.shots <= arena.level.par
+    efficient &&
+    reflectionMastery &&
+    accuracy >= (arena.level.starPrecision ?? 0.72)
       ? 3
-      : arena.shots === arena.level.par + 1
+      : arena.shots <= arena.level.par + 1
         ? 2
         : 1;
   const perfect =
     stars === 3 &&
-    arena.misses === 0 &&
-    arena.bounces >= (arena.level.perfectBounces || 0);
+    accuracy >= (arena.level.masteryPrecision ?? 0.88) &&
+    arena.mirrorBounces >= (arena.level.perfectBounces || 0);
   return {
     stars,
     perfect,
     shots: arena.shots,
+    accuracy,
+    reflectionMastery,
     score: Math.round(
       1000 +
         Math.max(0, arena.level.shots - arena.shots) * 350 +
         arena.targets.length * 150 +
-        Math.min(arena.bounces, 20) * 45 +
-        (arena.misses === 0 ? 250 : 0) +
+        Math.min(arena.mirrorBounces, arena.level.perfectBounces || 8) * 45 +
+        accuracy * 400 +
+        (efficient ? 250 : 0) +
         (perfect ? 500 : 0),
     ),
   };

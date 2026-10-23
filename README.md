@@ -1,8 +1,8 @@
 # RICOCHET ZERO
 
-**Every angle matters.** An original mobile precision arcade game developed and published by **BlackHouse Arcade**.
+**Every angle matters.** A mobile precision arcade game developed and published by **BlackHouse Arcade**. Version 1.1 / skill-first campaign revision 2.
 
-A standalone Canvas game with 30 handcrafted campaign arenas across five sectors, plus three unlockable one-shot challenges. No backend, paid APIs, external artwork, runtime dependencies, or background music.
+30 handcrafted campaign arenas and three one-shot challenges. Standalone Canvas, procedural art, original Web Audio effects, and browser-local saves. No backend, runtime dependencies, external artwork, or music.
 
 ## Play
 
@@ -10,72 +10,75 @@ A standalone Canvas game with 30 handcrafted campaign arenas across five sectors
 npm run dev
 ```
 
-Open <http://localhost:4173/>. Serve the `dist/` directory on any static HTTPS host for production. Opening the HTML through `file://` is unsupported because the game uses ES modules.
+Open <http://localhost:4173/>. Deploy `dist/` to a static HTTPS host. ES modules require HTTP serving; opening `index.html` through `file://` is unsupported.
 
-- **Touch / mouse:** drag from the cyan launcher toward the desired destination, then release to fire. A drag may begin anywhere in the arena except a rotatable mirror.
-- **Mirrors:** tap a violet mirror or its lettered control to rotate by 15°. Mirrors lock during flight.
-- **Keyboard:** Left / Right aim, Up / Down fine aim, Space fire, M rotate the next adjustable mirror, R restart, Escape pause.
-- **Recall:** ends the active pulse and retains its shot cost.
-- **Settings:** sound-effect volume, reduced motion, and an extended trajectory guide. Audio activates after a user gesture.
+- Drag from the launcher toward the desired destination; release to fire. A drag can begin anywhere in the arena except an adjustable mirror.
+- Tap a violet mirror or its lettered control to rotate 15°. Mirrors lock during flight.
+- Left / Right aim; Up / Down fine aim; Space fire; M cycle adjustable mirrors; R retry; Escape pause.
+- Recall ends a pulse while retaining its shot cost. Settings provide SFX volume, reduced motion, and an extended aim guide.
 
-Clear every target before the shot budget runs out. Three stars require par or better; two require par + 1. Perfect clears also require no empty shots and the arena's reflection objective. Scores reward unused shots, target count, reflections, clean shots, and perfect clears. Personal-best scores, minimum shots, stars, perfect clears, settings, and unlocks persist locally on the same browser and origin.
+## The revised campaign
 
-## Campaign
+Mirrors are physically necessary from arena 01 onward. Visible absorbing chamber walls occlude the targets and close the routes around the intended turns. Target damage is **not** conditioned on a hidden mirror-count rule: necessity comes from collision geometry.
 
-| Sector       | Arenas | Introduced / emphasized                                          |
-| ------------ | ------ | ---------------------------------------------------------------- |
-| Initiation   | 01–06  | Guided aiming, reflective walls, fixed mirrors, piercing targets |
-| Reflection   | 07–12  | Rotatable mirrors, multiple banks, reinforced targets            |
-| Interference | 13–18  | Absorbing barriers, moving arms, timed gates                     |
-| Cascade      | 19–24  | Splitters, linked chain reactions, branching circuits            |
-| Zero Point   | 25–30  | Advanced combinations, reinforced cascades, timing               |
+| Arenas | Challenge                                                                                            |
+| ------ | ---------------------------------------------------------------------------------------------------- |
+| 01–05  | Actual single-bank execution; diagonal approaches, aligned targets, first calibration                |
+| 06–10  | Two- and three-bank planning; connected turns and multiple calibrations                              |
+| 11–15  | Constrained optical lanes, reinforced cores, moving arms, broad timed gates                          |
+| 16–20  | Between-shot hub retuning, isolated target pockets, repeat pulses, prism and chain feeds             |
+| 21–25  | Gate / prism / armor / chain combinations, two-stage splitting, calibrated branch circuits           |
+| 26–30  | Required mirror plus wall banks, multiple pocket states, moving mechanisms and advanced combinations |
 
-One-shot challenges unlock after arenas 12, 24, and 30. Finishing arena 30 presents campaign statistics and credits. All arenas can be replayed.
+Challenges unlock after arenas 12, 24, and 30. All three also require mirrors. Arena 30 presents campaign statistics and credits. Every arena has a verified solution; opening stages reject target-directed shortcuts in actual browser input tests.
+
+Three stars require **par or better, no empty shots, at least 72% central accuracy, and the full mirror route on every target hit**. Accuracy measures how centrally a pulse crosses a target, rather than giving chain-propagated damage artificial aim credit. Two stars allow par + 1 or an efficient but less accurate clear. A perfect clear raises central accuracy to 88% and meets the arena's reflection objective. Results display the measured accuracy and requirements. Scores reward unused shots, clean execution, central accuracy, required reflections, and perfect clears.
+
+## Existing saves
+
+The original `blackhouse.ricochet-zero.v1` storage key and version remain supported. Existing unlocks, settings, completion states and records load without resetting progress. Old records are marked **LEGACY BEST / V1** until the corresponding arena is replayed. On replay, the original record is retained in `legacyResults`, and a new revision-2 record establishes the current geometry's benchmark. This avoids comparing a new two-shot puzzle against an old one-shot shortcut. Current-revision personal bests continue to accumulate normally. Progress remains browser/device/origin local.
 
 ## Verification
 
-Node 22 or newer recommended. The core game itself needs no package installation.
+Node 22+ recommended. The game has no runtime dependencies; Playwright is test-only.
 
 ```sh
-npm test                  # 18 physics / rules / persistence / campaign checks
-npm run verify            # solve all 33 arenas; writes artifacts/solutions.json
-npm ci                    # test-only Playwright dependency
+npm test                  # physics, gameplay, grading, legacy save and regression checks
+npm run verify            # solvability AND bypass / necessity AND fairness gates
+npm ci
 npx playwright install chromium webkit
-npm run dev               # keep this running in another terminal
-npm run test:e2e           # complete campaign and challenges through browser input
+npm run dev               # keep running in another terminal
+npm run test:e2e           # real desktop and touch gameplay across the revised campaign
 TEST_ENGINE=webkit node tests/browser.mjs
 ```
 
-The browser harness uses installed system Chromium when present. Set `CHROMIUM_PATH` to override, `PLAYWRIGHT_MODULE` for an existing Playwright module, or `TEST_URL` for a different local origin. Install browser system dependencies with Playwright's documented setup for your OS.
+`npm run verify` fails if a level is merely solvable but fails its required mirror count, permits a sampled mirror bypass, has a dispensable intended-route mirror, bypasses required rotation, or fails aim / timing tolerance checks. The adversarial pass samples the full 360° circle at 0.25°, alternative mirror configurations, mirror removal, mirror-to-absorber ablations, per-surface ablations, and optimistic combinations of sampled hit patterns to search for cheaper shot plans. Moving obstacles and gates are removed in shortcut searches to conservatively allow favorable timing. This search is broad and deterministic, not a proof over all continuous configurations.
 
-`QA.md` and `tests/evidence/` record actual release checks. Generated screenshots and detailed run output live in ignored `artifacts/`. The harness exposes **read-only** diagnostics only when the URL contains `?qa=1`; it cannot unlock levels or change engine state. Campaign browser tests use real aim / fire events and mirror controls, not completion cheats. A saved campaign is copied into a second browser context solely to revisit the touch-mirror test after the independent touch firing test.
+The browser harness plays all campaign levels and challenges through actual inputs. It tries direct target drags in the first ten, verifies understandable failures and quick retries, explores incorrect calibration and repeated wrong-pocket shots, verifies grading, and checks legacy migration. It revisits early 03, middle 17, and late 30 at mobile size with native Chromium touch drags. WebKit covers the campaign, mobile layout and aiming by mouse, plus native mirror taps. Read-only diagnostics exist only with `?qa=1`; they cannot change gameplay or unlock arenas.
+
+Use `CHROMIUM_PATH` to override system Chromium, `PLAYWRIGHT_MODULE` for an installed module, or `TEST_URL` to select a different test origin. Browser dependencies must be installed for the host OS. Detailed evidence and the 30-row report are in [CAMPAIGN_VALIDATION.md](CAMPAIGN_VALIDATION.md) and [QA.md](QA.md).
 
 ## Architecture
 
-- `dist/js/geometry.js` — vector math, reflection, swept circle / segment / capsule intersections, deterministic mechanics.
-- `dist/js/engine.js` — fixed 120 Hz simulation, projectile bounds, target rules, shared trajectory preview, ratings.
-- `dist/js/levels.js` — explicit arena definitions and optical-route authoring helpers; verified solution seeds.
-- `dist/js/renderer.js` — procedural Canvas art, trails, sparks, bursts, capped particles and shake.
-- `dist/js/audio.js` — original event-driven Web Audio effects; no audio assets.
-- `dist/js/save.js` — versioned, validated localStorage records and progression.
-- `dist/js/app.js` — screens, touch / mouse / keyboard input, HUD, settings, accessibility, results.
+- `geometry.js`: unchanged reflection and swept circle / segment / capsule calculations.
+- `engine.js`: fixed 120 Hz simulation; separate mirror/wall telemetry, target-route history and central-hit grading. Projectile speed, lifetime and bounce limits retain their original values.
+- `corridors.js`: authoring helper for visible absorbing boundaries around explicit routes, branch unions, rooms and optical face placement. Mirror placement accounts for the visible surface thickness and projectile radius; collision response itself is unchanged.
+- `levels.js`: explicit handcrafted arena paths, target pockets, mechanical components, rotations and multi-shot solution plans.
+- `renderer.js`: established procedural neon rendering. Mirror core width matches its physical surface; cyan bank panels are visually distinct from absorbing partitions.
+- `audio.js`: original event-driven sound system, unchanged by this overhaul.
+- `save.js`: compatible additive revision tracking and legacy-record preservation.
+- `app.js`: existing screens, input controls and HUD, with updated grading explanation and legacy record labels.
 
-Physics uses continuous collision detection per fixed step. Mirrors are capsules with round endpoints; all surface hits reflect using `v - 2(v·n)n`. Preview and live shots share collision functions. Moving arms and gates depend only on elapsed simulation time and freeze on pause. A prism splits at its center into symmetric ±30° branches. Reinforced targets accept at most one damage per shot. Linked targets propagate once through each destroyed neighbor.
-
-Each projectile has a seven-second lifetime and a sixteen-reflection ceiling. Branches inherit age and hit history, and cannot reuse the same prism. Decorative randomness never affects gameplay. Canvas resolution caps device pixel ratio at 2; particles cap at 150. Essential targets, mirrors, walls, barriers, and beams use no images.
-
-To expand the campaign, add an explicit definition with a unique ID, target positions, shot budget, par, mechanics, and solution seed, then run both the solver and browser harness. The solver searches small angle offsets and verifies clears at the same fixed timestep used in play. Timing-sensitive solution plans can align subsequent shots with a gate's period. Moving barriers in the aiming preview show their **current** positions, not future intercepts.
+Projectiles retain a seven-second lifetime, sixteen-reflection ceiling, inherited branch age and bounded splitter reuse. Device pixel ratio caps at 2 and particles at 150. Gameplay randomness is absent. The live pulse and guide share collision queries. Moving mechanisms freeze on pause; the guide shows their current positions.
 
 ## Repository and hosting
 
-This checkout is the dedicated `BlackHouse-Ricochet-Zero` Git repository. Its source is synchronized to the dedicated managed Git repository attached to the Ricochet Zero Site; `.openai/hosting.json` stores that separate project identity. No BlackHouse website or other game checkout is used.
+Dedicated repository: `BlackHouse-Ricochet-Zero`, synchronized to its own managed Git source and private Codex Site. `.openai/hosting.json` retains the existing project identity. No main BlackHouse website or other game repository is used. The connected GitHub integration previously rejected repository creation; the named local and managed repositories remain the delivery source.
 
-The connected GitHub integration denied `createRepository` (`Resource not accessible by integration`), so no GitHub repository was created. The complete named local repository and dedicated managed source remain available, and can be mirrored to GitHub when repository-creation access is granted.
+The dedicated preview is owner-private. No changes are deployed to `blackhouse.fun`.
 
-The hosted preview is owner-private under Codex Sites. Public sharing is a separate hosting setting. No change was made to `blackhouse.fun`.
+## Verification limits
 
-## Known verification limits
+No independent human difficulty study, physical iPhone Safari session, hardware audio listening test, or sustained thermal/battery test has been performed. Difficulty assessment combines geometry review, negative-input exploration, actual browser gameplay, touch checks, visual review, timing sweeps and alternative-route searches; it is not inferred solely from solvability. Subjective tuning still benefits from real player feedback. Browser storage clearing removes local progress.
 
-Browser automation covers Chromium and Playwright WebKit, including iPhone-sized viewports. Native touch drag was tested through Chromium's touch input protocol; WebKit covers aiming by mouse, mobile layout, and native touch taps on mirrors. Physical iPhone Safari, hardware audio listening, and long-session battery / thermal behavior require device testing. Progress is local to this browser and origin; there is no cloud sync. Clearing browser storage removes it.
-
-© 2026 BlackHouse. Original game, procedural artwork, and synthesized sounds. All rights reserved.
+© 2026 BlackHouse. Original game, procedural visuals and synthesized sounds. All rights reserved.

@@ -1,0 +1,201 @@
+[
+  {
+    "id": 3,
+    "name": "The turning point",
+    "hint": "A mirror changes your direction, never your speed.",
+    "tier": 0,
+    "shots": 3,
+    "par": 1,
+    "perfectBounces": 1,
+    "launcher": {
+      "x": 180,
+      "y": 466
+    },
+    "mirrors": [
+      {
+        "id": "m0",
+        "x": 180,
+        "y": 280,
+        "angle": 1.9037809454844514,
+        "length": 70,
+        "rotatable": false
+      }
+    ],
+    "solution": {
+      "direction": {
+        "x": 0,
+        "y": -1
+      },
+      "rotations": []
+    },
+    "targets": [
+      {
+        "x": 290,
+        "y": 140
+      }
+    ],
+    "tutorial": "mirror"
+  },
+  {
+    "id": 15,
+    "name": "Open window",
+    "hint": "A dashed amber gate is open. A solid gate absorbs the pulse.",
+    "tier": 2,
+    "shots": 3,
+    "par": 1,
+    "perfectBounces": 0,
+    "launcher": {
+      "x": 180,
+      "y": 466
+    },
+    "targets": [
+      {
+        "x": 180,
+        "y": 110
+      }
+    ],
+    "barriers": [
+      {
+        "x": 180,
+        "y": 290,
+        "length": 160,
+        "angle": 0,
+        "period": 2.8,
+        "open": 1.35,
+        "phase": 0
+      }
+    ],
+    "solution": {
+      "direction": {
+        "x": 0,
+        "y": -1
+      },
+      "wait": 0
+    },
+    "tutorial": "gate"
+  },
+  {
+    "id": 19,
+    "name": "Divide the light",
+    "hint": "A prism splits one pulse into two at ±30°.",
+    "tier": 3,
+    "shots": 3,
+    "par": 1,
+    "perfectBounces": 0,
+    "launcher": {
+      "x": 180,
+      "y": 466
+    },
+    "splitters": [
+      {
+        "id": "s0",
+        "x": 180,
+        "y": 300
+      }
+    ],
+    "targets": [
+      {
+        "x": 105,
+        "y": 170
+      },
+      {
+        "x": 255,
+        "y": 170
+      }
+    ],
+    "solution": {
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    "tutorial": "split"
+  },
+  {
+    "id": 20,
+    "name": "Domino effect",
+    "hint": "Destroy a linked target to burst everything inside its ring.",
+    "tier": 3,
+    "shots": 3,
+    "par": 1,
+    "perfectBounces": 0,
+    "launcher": {
+      "x": 90,
+      "y": 466
+    },
+    "targets": [
+      {
+        "x": 90,
+        "y": 250,
+        "chain": 85
+      },
+      {
+        "x": 150,
+        "y": 205,
+        "chain": 85
+      },
+      {
+        "x": 215,
+        "y": 170,
+        "chain": 85
+      },
+      {
+        "x": 275,
+        "y": 120
+      }
+    ],
+    "barriers": [
+      {
+        "x": 210,
+        "y": 330,
+        "length": 140,
+        "angle": 0
+      }
+    ],
+    "solution": {
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    },
+    "tutorial": "chain"
+  },
+  {
+    "id": 22,
+    "name": "Resonance",
+    "hint": "Reinforced pairs require two perfectly aligned cascades.",
+    "tier": 3,
+    "shots": 4,
+    "par": 2,
+    "perfectBounces": 0,
+    "launcher": {
+      "x": 180,
+      "y": 466
+    },
+    "splitters": [
+      {
+        "id": "s0",
+        "x": 180,
+        "y": 320
+      }
+    ],
+    "targets": [
+      {
+        "x": 105,
+        "y": 190,
+        "hp": 2
+      },
+      {
+        "x": 255,
+        "y": 190,
+        "hp": 2
+      }
+    ],
+    "solution": {
+      "direction": {
+        "x": 0,
+        "y": -1
+      }
+    }
+  }
+]

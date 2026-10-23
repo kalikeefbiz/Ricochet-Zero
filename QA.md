@@ -1,40 +1,50 @@
-# Ricochet Zero — release verification
+# Ricochet Zero 1.1 — campaign overhaul verification
 
-Performed 2026-10-23 against the release source in this dedicated checkout.
+Performed 2026-10-23. This report replaces the original release's solvability-only campaign assessment. The per-arena counts and bounded shortcut results are in [CAMPAIGN_VALIDATION.md](CAMPAIGN_VALIDATION.md).
 
-## Automated physics, rules, and save data
+## Automated checks
 
-`npm test`: **18 / 18 passed**. Coverage includes reflection direction and conserved speed; circle, segment and thick mirror collisions; absorbing barriers; target destruction and completion; reinforced targets; recursive chains; shot limits and failure; projectile lifetime and bounce ceilings; mirror rotation and in-flight locking; symmetric splitters; deterministic gates and moving barriers; preview/live collision agreement; recall; save/load and personal records; blocked/corrupt storage; and campaign/challenge progression.
+`npm test`: **27 / 27 passed**. Original coverage for reflection, continuous collisions, bounds, hit rules, armor, chains, shot limits, splitters, gates, moving elements, rotation, recall, persistence and progression remains. New checks cover precision-based ratings, wall-versus-mirror mastery, actual blocked target-directed shots in the opening ten, mirror-removed target access, a deliberately reopened shortcut, tracer/fixed-step outcome agreement, closed absorbing shell boundaries, legacy-record migration and optimistic shot-cover analysis.
 
-`npm run verify`: **33 / 33 solved at par with perfect-clear conditions**. All 30 campaign arenas and three challenges were played through the actual fixed-step engine. The solver checks 321 aim offsets per arena and selects the center of a successful interval among efficient perfect routes. The narrowest selected interval has approximately ±0.99° of aim tolerance. Rotation and timing plans are included in arena definitions. Exact selected offsets and outcomes are in [solutions.json](tests/evidence/solutions.json).
+The campaign solver cleared **all 30 arenas and all three challenges at par with perfect-clear conditions** through the actual 120 Hz engine. Multi-shot plans include deliberate calibration, between-shot hub rotation, different firing angles and gate-cycle alignment.
 
-## Browser end-to-end
+The adversarial audit passed **30 / 30**. Main sweeps evaluated **357,270 trajectories across 1,014 configurations**, with separate individual reflective-surface ablations. No sampled zero-mirror contact or target access with mirrors removed or changed into absorbers was detected. Every intended reflective surface was necessary in the sampled ablation checks. No sampled route had fewer than its required mirror depth. Incorrect initial rotation states could not cover all targets. Optimistic combinations of sampled hit patterns did not beat the intended shot count in any arena.
 
-Both browser runs passed **18 scenario groups**, with **zero JavaScript errors**:
+Fairness sweeps passed **30 / 30**. Opening clear tolerance is at least ±1.18°; campaign minimum is approximately ±0.62°. Dynamic stages have a sampled contiguous successful start window of at least one second. Aim tolerances are basic-clear tolerances; optional mastery accuracy is stricter. These values describe the selected solution plan and are not universal claims about every possible route or timing choice.
 
-- Chromium, native system build, through Playwright 1.57.
-- Playwright WebKit 26.0, build 2227.
+## Browser gameplay
 
-Each run completed all 30 campaign arenas and all three optional challenges through real mouse aiming/firing and UI mirror controls. Neither run used a gameplay mutation API or fabricated campaign clears. Verified title/start, trajectory aiming, successful hits, misses and exhausted-shot failure, recall, retry, restart, mirror rotation, level locks and unlocks, save restoration, pause freezing, sound/motion settings, arrow/Space keyboard play, campaign completion statistics, challenges, and reload persistence.
+**Chromium and Playwright WebKit 26.0 each passed 16 scenario groups with zero JavaScript errors.** Each played all 30 revised campaign arenas and all three challenges through real aiming/firing inputs and UI mirror controls. No gameplay mutation API or fabricated clears were used for the campaign run.
 
-The independent mobile context verified:
+Verified:
 
-- **390×844, 375×667, 320×568, 430×932** portrait layouts without horizontal overflow.
-- Restart controls remain visible and at least 44px high.
-- Chromium: actual native CDP touch start/move/end drag fires and clears arena 01.
-- WebKit: aiming and clearing in a touch-capable mobile viewport using a mouse drag.
-- Both: native touchscreen taps rotate an arena 07 mirror without consuming a shot.
+- Title/start, level select, progression locks/unlocks, and restored local progress.
+- Target-directed drags fail in every opening arena 01–10; their actual mirror routes then clear.
+- Fixed mirrors, calibrated mirrors, multi-bank routes, pocket switching, armor, gates, moving arms, splitting, chains and wall banks in the full campaign.
+- Deliberately uncalibrated arena 05 fails; calibration then permits the second shot to clear it.
+- Repeating the cleared pocket's aim in arena 16 wastes a pulse; retuning the hub and aiming into the other pocket completes it.
+- Efficient edge-hit completion earns two stars rather than automatic three.
+- Shot exhaustion, recall, failure messaging, quick retry, keyboard aiming/fire/restart, pause freezing, and settings.
+- Final campaign statistics and all optional challenge unlocks.
+- Legacy schema import preserves unlocks/settings and other records; replaying the revised arena 16 archives its old one-shot record and establishes a valid new two-shot record.
 
-The mobile mirror revisit loads the already-earned campaign save into the mobile context; mobile firing starts with an independent empty save. The `?qa=1` diagnostics are read-only. Browser reports are in [Chromium](tests/evidence/browser-chromium.json) and [WebKit](tests/evidence/browser-webkit.json).
+The legacy compatibility context converts records earned by the actual browser run back into the original schema solely for migration testing. This is separate from the full campaign's input-driven completion.
 
-## Visual review and limits
+## Mobile and visual review
 
-Reviewed desktop title/play screens, iPhone-sized title/play screens, advanced mechanics, visible results, campaign completion, and level selection. Procedural targets and interactive surfaces remain distinct from floor decoration. Essential assets are generated by the game. Web Audio effects executed during browser gameplay without JavaScript exceptions; no hardware listening test was performed.
+Chromium's **native touch start/move/end inputs** completed arena **03**, sequencing arena **17**, and mastery arena **30**, without scrolling the page. WebKit completed the same arenas in a touch-capable mobile viewport using mouse drag. Both engines used native touchscreen taps to rotate a mirror without firing.
 
-No physical iPhone Safari, sustained device thermal/battery test, or hardware audio listening test was performed. Playwright WebKit is browser-engine coverage, not a claim of testing an Apple device. The trajectory preview samples moving obstacles at their current positions. Saves are device/browser/origin local and are removed if browser storage is cleared.
+Layouts at **390×844, 375×667, 320×568 and 430×932** retain visible retry controls at least 44px high and have no horizontal overflow. Reviewed the revised early, branching and final arenas and mobile results for visual separation of targets, mirrors, bank panels, prisms, machinery and absorbing partitions. The existing title art, typography, HUD structure, menus, controls, effects and audio identity remain.
 
-## Repository and deployment boundary
+No independent human difficulty study or physical iPhone Safari session was performed. This assessment combines geometry review, alternate-route search, failed input exploration, complete browser play, native touch checks, visual inspection, timing sweeps and tolerance checks. It is not a claim that solvability alone establishes subjective balance. Real player feedback remains useful for further tuning. Hardware audio listening and sustained thermal/battery behavior were not tested.
 
-A dedicated local Git repository is named `BlackHouse-Ricochet-Zero`. Its remote source is the separate managed Git repository provisioned for this game's Codex Site. Creating `kalikeefbiz/BlackHouse-Ricochet-Zero` on GitHub was attempted and rejected by the integration's repository-creation permissions; no GitHub repository exists from this task. No code or deployment was changed on `blackhouse.fun` or another game repository.
+## Evidence and delivery boundary
 
-Deployment is to an owner-private Codex Site using the pushed source commit and an archive of the matching static `dist/` plus hosting manifest. The final delivery message records the native deployment result and literal preview URL.
+- [Solutions](tests/evidence/solutions.json)
+- [Campaign necessity, shortcuts and shot counts](tests/evidence/campaign-audit.json)
+- [Fairness sweeps](tests/evidence/fairness.json)
+- [Original reachability audit](tests/evidence/baseline-audit.json)
+- [Chromium browser run](tests/evidence/browser-chromium.json)
+- [WebKit browser run](tests/evidence/browser-webkit.json)
+
+All source remains in the dedicated `BlackHouse-Ricochet-Zero` local/managed Git repository. The existing private Codex Site identity and audience are retained. The original save key and schema version remain supported. No BlackHouse public website or other game repository is modified. The final delivery message records the pushed commit and native preview deployment result.

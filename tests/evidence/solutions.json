@@ -4,329 +4,1107 @@
     "name": "First light",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.043125000000000004,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.003375,
+    "clearMarginRadians": 0.031125,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 1,
+    "mirrorBounces": 1,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999996,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999996,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 2,
     "name": "A different angle",
     "solved": true,
-    "offset": -0.00825,
-    "marginRadians": 0.033375,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.004125,
+    "clearMarginRadians": 0.035625000000000004,
     "shots": 1,
     "bounces": 1,
-    "perfect": true
+    "mirrorBounces": 1,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999992,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999992,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 3,
     "name": "The turning point",
     "solved": true,
-    "offset": 0.02325,
-    "marginRadians": 0.040125,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.004125,
+    "clearMarginRadians": 0.031875,
     "shots": 1,
     "bounces": 1,
-    "perfect": true
+    "mirrorBounces": 1,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999557,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999557,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 4,
     "name": "Through line",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.043125000000000004,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.003375,
+    "clearMarginRadians": 0.028875,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 1,
+    "mirrorBounces": 1,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999041,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999041,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 5,
     "name": "Sidewinder",
     "solved": true,
-    "offset": -0.00525,
-    "marginRadians": 0.02925,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.004875,
+    "clearMarginRadians": 0.040875,
     "shots": 1,
     "bounces": 1,
-    "perfect": true
+    "mirrorBounces": 1,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.999999999999946,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.999999999999946,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 6,
     "name": "Double take",
     "solved": true,
-    "offset": 0.0225,
-    "marginRadians": 0.027375,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.022125,
     "shots": 1,
     "bounces": 2,
-    "perfect": true
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.999999999999913,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.999999999999913,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 7,
     "name": "Change of mind",
     "solved": true,
-    "offset": 0.0225,
-    "marginRadians": 0.037875,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.020625,
     "shots": 1,
-    "bounces": 1,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999573,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999573,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 8,
     "name": "Cross current",
     "solved": true,
-    "offset": 0.02325,
-    "marginRadians": 0.027,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.024375,
     "shots": 1,
     "bounces": 2,
-    "perfect": true
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 1,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 1,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 9,
     "name": "Switchback",
     "solved": true,
-    "offset": 0.0225,
-    "marginRadians": 0.021,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.022125,
     "shots": 1,
     "bounces": 3,
-    "perfect": true
+    "mirrorBounces": 3,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 3,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999959,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999959,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 10,
     "name": "Counterweight",
     "solved": true,
-    "offset": -0.0225,
-    "marginRadians": 0.026625,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.020625,
     "shots": 1,
-    "bounces": 2,
-    "perfect": true
+    "bounces": 3,
+    "mirrorBounces": 3,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 3,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999706,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999706,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 11,
     "name": "Reinforced",
     "solved": true,
-    "offset": 0.0165,
-    "marginRadians": 0.034125,
+    "offset": 0,
+    "offsets": [
+      0,
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.024375,
     "shots": 2,
-    "bounces": 2,
-    "perfect": true
+    "bounces": 4,
+    "mirrorBounces": 4,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999954,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999954,
+        "reflections": 2
+      },
+      {
+        "offset": 0,
+        "time": 1.2583333333333313,
+        "rotations": [],
+        "precision": 0.9999999999999954,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 12,
     "name": "Prism corridor",
     "solved": true,
-    "offset": -0.02625,
-    "marginRadians": 0.0225,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.020625,
     "shots": 1,
     "bounces": 3,
-    "perfect": true
+    "mirrorBounces": 3,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 3,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999737,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999737,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 13,
     "name": "Dead zone",
     "solved": true,
-    "offset": 0.0165,
-    "marginRadians": 0.0315,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.022125,
     "shots": 1,
-    "bounces": 1,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999973,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999973,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 14,
-    "name": "Pendulum",
-    "solved": true,
-    "offset": 0.01875,
-    "marginRadians": 0.033,
-    "shots": 1,
-    "bounces": 1,
-    "perfect": true
-  },
-  {
-    "id": 15,
     "name": "Open window",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.040875,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.021375,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999132,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999132,
+        "reflections": 2
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Interlock",
+    "solved": true,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.022875,
+    "shots": 1,
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999152,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999152,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 16,
-    "name": "Interlock",
+    "name": "Switchyard",
     "solved": true,
-    "offset": 0.024,
-    "marginRadians": 0.026625,
-    "shots": 1,
+    "offset": 0,
+    "offsets": [
+      0,
+      0.04125
+    ],
+    "marginRadians": 0.0045000000000000005,
+    "clearMarginRadians": 0.037875,
+    "shots": 2,
     "bounces": 2,
-    "perfect": true
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9942399308102929,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999999,
+        "reflections": 1
+      },
+      {
+        "offset": 0.04125,
+        "time": 0.866666666666666,
+        "rotations": [
+          {
+            "index": 0,
+            "taps": 3
+          }
+        ],
+        "precision": 0.988479861620586,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 17,
     "name": "Twice as bright",
     "solved": true,
-    "offset": -0.021,
-    "marginRadians": 0.036375,
-    "shots": 2,
-    "bounces": 2,
-    "perfect": true
+    "offset": 0,
+    "offsets": [
+      0,
+      0.036000000000000004,
+      0.036000000000000004
+    ],
+    "marginRadians": 0.004125,
+    "clearMarginRadians": 0.025125,
+    "shots": 3,
+    "bounces": 6,
+    "mirrorBounces": 6,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9989725193315708,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999816,
+        "reflections": 2
+      },
+      {
+        "offset": 0.036000000000000004,
+        "time": 0.974999999999999,
+        "rotations": [
+          {
+            "index": 0,
+            "taps": 3
+          }
+        ],
+        "precision": 0.9984587789973653,
+        "reflections": 2
+      },
+      {
+        "offset": 0.036000000000000004,
+        "time": 1.8666666666666625,
+        "rotations": [],
+        "precision": 0.9984587789973656,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 18,
     "name": "Narrow escape",
     "solved": true,
-    "offset": 0.021750000000000002,
-    "marginRadians": 0.025125,
-    "shots": 1,
-    "bounces": 2,
-    "perfect": true
+    "offset": 0,
+    "offsets": [
+      0,
+      -0.036000000000000004
+    ],
+    "marginRadians": 0.004125,
+    "clearMarginRadians": 0.034125,
+    "shots": 2,
+    "bounces": 4,
+    "mirrorBounces": 4,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9952447421090087,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999543,
+        "reflections": 2
+      },
+      {
+        "offset": -0.036000000000000004,
+        "time": 3.6,
+        "rotations": [
+          {
+            "index": 1,
+            "taps": 3
+          }
+        ],
+        "precision": 0.9904894842180632,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 19,
     "name": "Divide the light",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.081375,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.013125,
+    "clearMarginRadians": 0.034125,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9971499427456709,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9971499427456709,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 20,
     "name": "Domino effect",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.067125,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.022875,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999537,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999537,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 21,
     "name": "Twin circuit",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.088875,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.013125,
+    "clearMarginRadians": 0.034125,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9971499427456751,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9971499427456751,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 22,
     "name": "Resonance",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.092625,
+    "offsets": [
+      0,
+      0
+    ],
+    "marginRadians": 0.013125,
+    "clearMarginRadians": 0.034125,
     "shots": 2,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 4,
+    "mirrorBounces": 4,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9971499427456709,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9971499427456709,
+        "reflections": 2
+      },
+      {
+        "offset": 0,
+        "time": 3.4,
+        "rotations": [],
+        "precision": 0.9971499427456709,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 23,
     "name": "Threefold",
     "solved": true,
-    "offset": 0.00075,
-    "marginRadians": 0.0855,
-    "shots": 1,
-    "bounces": 1,
-    "perfect": true
+    "offset": 0,
+    "offsets": [
+      0,
+      0.036000000000000004
+    ],
+    "marginRadians": 0.004125,
+    "clearMarginRadians": 0.023625,
+    "shots": 2,
+    "bounces": 4,
+    "mirrorBounces": 4,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9992293894986729,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999807,
+        "reflections": 2
+      },
+      {
+        "offset": 0.036000000000000004,
+        "time": 1.0499999999999987,
+        "rotations": [
+          {
+            "index": 0,
+            "taps": 3
+          }
+        ],
+        "precision": 0.9984587789973651,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 24,
     "name": "Cascade chamber",
     "solved": true,
-    "offset": 0.025500000000000002,
-    "marginRadians": 0.042375,
+    "offset": -0.0015,
+    "offsets": [
+      -0.0015
+    ],
+    "marginRadians": 0.016875,
+    "clearMarginRadians": 0.041625,
     "shots": 1,
     "bounces": 2,
-    "perfect": true
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.992369398108143,
+    "sequence": [
+      {
+        "offset": -0.0015,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.992369398108143,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 25,
     "name": "Fault line",
     "solved": true,
-    "offset": 0.0225,
-    "marginRadians": 0.02625,
-    "shots": 1,
-    "bounces": 2,
-    "perfect": true
+    "offset": 0,
+    "offsets": [
+      0,
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.021375,
+    "shots": 2,
+    "bounces": 6,
+    "mirrorBounces": 6,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 3,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999664,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999664,
+        "reflections": 3
+      },
+      {
+        "offset": 0,
+        "time": 3.4,
+        "rotations": [],
+        "precision": 0.9999999999999664,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 26,
     "name": "Phase shift",
     "solved": true,
-    "offset": -0.01875,
-    "marginRadians": 0.035250000000000004,
+    "offset": 0,
+    "offsets": [
+      0,
+      -0.02925
+    ],
+    "marginRadians": 0.003375,
+    "clearMarginRadians": 0.019125,
     "shots": 2,
-    "bounces": 2,
-    "perfect": true
+    "bounces": 6,
+    "mirrorBounces": 4,
+    "wallBounces": 2,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9995550482943625,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999729,
+        "reflections": 3
+      },
+      {
+        "offset": -0.02925,
+        "time": 1.1916666666666649,
+        "rotations": [
+          {
+            "index": 1,
+            "taps": 3
+          }
+        ],
+        "precision": 0.999110096588752,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 27,
     "name": "Critical mass",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.049125,
-    "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "offsets": [
+      0,
+      0,
+      -0.02925
+    ],
+    "marginRadians": 0.003375,
+    "clearMarginRadians": 0.018375,
+    "shots": 3,
+    "bounces": 9,
+    "mirrorBounces": 9,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 3,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9975029477665279,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999842,
+        "reflections": 3
+      },
+      {
+        "offset": 0,
+        "time": 3.8,
+        "rotations": [],
+        "precision": 0.9999999999999842,
+        "reflections": 3
+      },
+      {
+        "offset": -0.02925,
+        "time": 7.6,
+        "rotations": [
+          {
+            "index": 1,
+            "taps": 3
+          }
+        ],
+        "precision": 0.9925088432996154,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 28,
     "name": "Event horizon",
     "solved": true,
-    "offset": 0.021750000000000002,
-    "marginRadians": 0.027375,
-    "shots": 2,
-    "bounces": 4,
-    "perfect": true
+    "offset": 0,
+    "offsets": [
+      0,
+      -0.0045000000000000005,
+      0.01575,
+      0.0135
+    ],
+    "marginRadians": 0.01125,
+    "clearMarginRadians": 0.011625,
+    "shots": 4,
+    "bounces": 8,
+    "mirrorBounces": 8,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9599014465804525,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9815769402989395,
+        "reflections": 2
+      },
+      {
+        "offset": -0.0045000000000000005,
+        "time": 3.8,
+        "rotations": [],
+        "precision": 0.9998998625559781,
+        "reflections": 2
+      },
+      {
+        "offset": 0.01575,
+        "time": 7.6,
+        "rotations": [
+          {
+            "index": 0,
+            "taps": 3
+          }
+        ],
+        "precision": 0.9351719243680532,
+        "reflections": 2
+      },
+      {
+        "offset": 0.0135,
+        "time": 11.399999999999999,
+        "rotations": [],
+        "precision": 0.9260110875927516,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 29,
     "name": "The last angle",
     "solved": true,
-    "offset": -0.02475,
-    "marginRadians": 0.021375,
+    "offset": 0,
+    "offsets": [
+      0,
+      0
+    ],
+    "marginRadians": 0.001875,
+    "clearMarginRadians": 0.015375,
     "shots": 2,
-    "bounces": 6,
-    "perfect": true
+    "bounces": 8,
+    "mirrorBounces": 8,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 4,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999545,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999545,
+        "reflections": 4
+      },
+      {
+        "offset": 0,
+        "time": 3.8,
+        "rotations": [],
+        "precision": 0.9999999999999545,
+        "reflections": 4
+      }
+    ]
   },
   {
     "id": 30,
     "name": "Zero point",
     "solved": true,
-    "offset": 0.04725,
-    "marginRadians": 0.019125,
-    "shots": 2,
-    "bounces": 3,
-    "perfect": true
+    "offset": 0,
+    "offsets": [
+      0,
+      0.0045000000000000005,
+      -0.015,
+      -0.012750000000000001
+    ],
+    "marginRadians": 0.01125,
+    "clearMarginRadians": 0.010875000000000001,
+    "shots": 4,
+    "bounces": 12,
+    "mirrorBounces": 8,
+    "wallBounces": 4,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9614448398021976,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9815769402989394,
+        "reflections": 3
+      },
+      {
+        "offset": 0.0045000000000000005,
+        "time": 3.6,
+        "rotations": [],
+        "precision": 0.9998998625559752,
+        "reflections": 3
+      },
+      {
+        "offset": -0.015,
+        "time": 7.2,
+        "rotations": [
+          {
+            "index": 1,
+            "taps": 3
+          }
+        ],
+        "precision": 0.9382587382673722,
+        "reflections": 3
+      },
+      {
+        "offset": -0.012750000000000001,
+        "time": 10.8,
+        "rotations": [],
+        "precision": 0.9290978191245873,
+        "reflections": 3
+      }
+    ]
   },
   {
     "id": 31,
     "name": "Needlework",
     "solved": true,
-    "offset": 0.0195,
-    "marginRadians": 0.0225,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.002625,
+    "clearMarginRadians": 0.019875,
     "shots": 1,
     "bounces": 1,
-    "perfect": true
+    "mirrorBounces": 1,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 1,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999902,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999902,
+        "reflections": 1
+      }
+    ]
   },
   {
     "id": 32,
     "name": "Chain of command",
     "solved": true,
     "offset": 0,
-    "marginRadians": 0.045375,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.013125,
+    "clearMarginRadians": 0.034125,
     "shots": 1,
-    "bounces": 0,
-    "perfect": true
+    "bounces": 2,
+    "mirrorBounces": 2,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 2,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9971499427456755,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9971499427456755,
+        "reflections": 2
+      }
+    ]
   },
   {
     "id": 33,
     "name": "Absolute zero",
     "solved": true,
-    "offset": -0.02325,
-    "marginRadians": 0.01725,
+    "offset": 0,
+    "offsets": [
+      0
+    ],
+    "marginRadians": 0.001875,
+    "clearMarginRadians": 0.013125,
     "shots": 1,
-    "bounces": 3,
-    "perfect": true
+    "bounces": 4,
+    "mirrorBounces": 4,
+    "wallBounces": 0,
+    "minimumTargetMirrors": 4,
+    "perfect": true,
+    "stars": 3,
+    "accuracy": 0.9999999999999465,
+    "sequence": [
+      {
+        "offset": 0,
+        "time": 0,
+        "rotations": [],
+        "precision": 0.9999999999999465,
+        "reflections": 4
+      }
+    ]
   }
 ]

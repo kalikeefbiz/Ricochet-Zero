@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "clearAimToleranceDegrees": 1.7833311373446874,
+    "masteryAimToleranceDegrees": 0.19337325585665285,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 2,
+    "clearAimToleranceDegrees": 2.041162145153558,
+    "masteryAimToleranceDegrees": 0.2363450904914646,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 3,
+    "clearAimToleranceDegrees": 1.826302971979499,
+    "masteryAimToleranceDegrees": 0.2363450904914646,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 4,
+    "clearAimToleranceDegrees": 1.6544156334402522,
+    "masteryAimToleranceDegrees": 0.19337325585665285,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 5,
+    "clearAimToleranceDegrees": 2.34196498759724,
+    "masteryAimToleranceDegrees": 0.2793169251262763,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 6,
+    "clearAimToleranceDegrees": 1.2676691217269465,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 7,
+    "clearAimToleranceDegrees": 1.181725452457323,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 8,
+    "clearAimToleranceDegrees": 1.3965846256313816,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 9,
+    "clearAimToleranceDegrees": 1.2676691217269465,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 10,
+    "clearAimToleranceDegrees": 1.181725452457323,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 11,
+    "clearAimToleranceDegrees": 1.3965846256313816,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 12,
+    "clearAimToleranceDegrees": 1.181725452457323,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 13,
+    "clearAimToleranceDegrees": 1.2676691217269465,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": 2.9637666543299934,
+    "successfulStarts": 30,
+    "totalStarts": 53,
+    "passed": true
+  },
+  {
+    "id": 14,
+    "clearAimToleranceDegrees": 1.2246972870921347,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": 2.4,
+    "successfulStarts": 24,
+    "totalStarts": 34,
+    "passed": true
+  },
+  {
+    "id": 15,
+    "clearAimToleranceDegrees": 1.310640956361758,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": 2.6,
+    "successfulStarts": 26,
+    "totalStarts": 36,
+    "passed": true
+  },
+  {
+    "id": 16,
+    "clearAimToleranceDegrees": 2.170077649057993,
+    "masteryAimToleranceDegrees": 0.25783100780887047,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 17,
+    "clearAimToleranceDegrees": 1.4395564602661934,
+    "masteryAimToleranceDegrees": 0.2363450904914646,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 18,
+    "clearAimToleranceDegrees": 1.9552184758839344,
+    "masteryAimToleranceDegrees": 0.2363450904914646,
+    "widestStartWindowSeconds": 1.3,
+    "successfulStarts": 23,
+    "totalStarts": 36,
+    "passed": true
+  },
+  {
+    "id": 19,
+    "clearAimToleranceDegrees": 1.9552184758839344,
+    "masteryAimToleranceDegrees": 0.7520071061092054,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 20,
+    "clearAimToleranceDegrees": 1.310640956361758,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 21,
+    "clearAimToleranceDegrees": 1.9552184758839344,
+    "masteryAimToleranceDegrees": 0.7520071061092054,
+    "widestStartWindowSeconds": 2.4,
+    "successfulStarts": 24,
+    "totalStarts": 34,
+    "passed": true
+  },
+  {
+    "id": 22,
+    "clearAimToleranceDegrees": 1.9552184758839344,
+    "masteryAimToleranceDegrees": 0.7520071061092054,
+    "widestStartWindowSeconds": 2.3000000000000003,
+    "successfulStarts": 23,
+    "totalStarts": 34,
+    "passed": true
+  },
+  {
+    "id": 23,
+    "clearAimToleranceDegrees": 1.35361279099657,
+    "masteryAimToleranceDegrees": 0.2363450904914646,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 24,
+    "clearAimToleranceDegrees": 2.384936822232052,
+    "masteryAimToleranceDegrees": 0.9668662792832642,
+    "widestStartWindowSeconds": null,
+    "successfulStarts": null,
+    "totalStarts": 0,
+    "passed": true
+  },
+  {
+    "id": 25,
+    "clearAimToleranceDegrees": 1.2246972870921347,
+    "masteryAimToleranceDegrees": 0.1504014212218411,
+    "widestStartWindowSeconds": 2.5,
+    "successfulStarts": 25,
+    "totalStarts": 34,
+    "passed": true
+  },
+  {
+    "id": 26,
+    "clearAimToleranceDegrees": 1.0957817831876995,
+    "masteryAimToleranceDegrees": 0.19337325585665285,
+    "widestStartWindowSeconds": 1.4,
+    "successfulStarts": 16,
+    "totalStarts": 36,
+    "passed": true
+  },
+  {
+    "id": 27,
+    "clearAimToleranceDegrees": 1.0528099485528877,
+    "masteryAimToleranceDegrees": 0.19337325585665285,
+    "widestStartWindowSeconds": 1,
+    "successfulStarts": 14,
+    "totalStarts": 38,
+    "passed": true
+  },
+  {
+    "id": 28,
+    "clearAimToleranceDegrees": 0.6660634368395819,
+    "masteryAimToleranceDegrees": 0.6445775195221761,
+    "widestStartWindowSeconds": 2.6,
+    "successfulStarts": 26,
+    "totalStarts": 38,
+    "passed": true
+  },
+  {
+    "id": 29,
+    "clearAimToleranceDegrees": 0.8809226100136407,
+    "masteryAimToleranceDegrees": 0.10742958658702935,
+    "widestStartWindowSeconds": 1.9000000000000001,
+    "successfulStarts": 19,
+    "totalStarts": 38,
+    "passed": true
+  },
+  {
+    "id": 30,
+    "clearAimToleranceDegrees": 0.6230916022047703,
+    "masteryAimToleranceDegrees": 0.6445775195221761,
+    "widestStartWindowSeconds": 1,
+    "successfulStarts": 16,
+    "totalStarts": 36,
+    "passed": true
+  }
+]

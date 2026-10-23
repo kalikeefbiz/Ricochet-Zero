@@ -1,24 +1,28 @@
-import { unit, sub, rotate, add, mul } from "./geometry.js";
+import { opticalArena } from "./corridors.js";
+export const CAMPAIGN_REVISION = 2;
 export const TIERS = [
+  { name: "Initiation", focus: "Earn the first reflection", color: "#67ebdf" },
   {
-    name: "Initiation",
-    focus: "Learn the language of light",
-    color: "#67ebdf",
+    name: "Reflection",
+    focus: "Plan the whole optical circuit",
+    color: "#8fa1ff",
   },
-  { name: "Reflection", focus: "Find another way through", color: "#8fa1ff" },
   {
     name: "Interference",
-    focus: "Read the arena. Choose your moment.",
+    focus: "Read the machinery. Choose your moment.",
     color: "#ffc46d",
   },
   {
     name: "Cascade",
-    focus: "One pulse. A chain of possibilities.",
+    focus: "Sequence the light. Control the branches.",
     color: "#cb9aff",
   },
-  { name: "Zero Point", focus: "Make every angle count", color: "#ff8f9f" },
+  {
+    name: "Zero Point",
+    focus: "Every angle. Every mechanic.",
+    color: "#ff8f9f",
+  },
 ];
-const P = (x, y) => ({ x, y });
 const T = (x, y, extra = {}) => ({ x, y, ...extra });
 const B = (x, y, length, angle = 0, extra = {}) => ({
   x,
@@ -27,515 +31,893 @@ const B = (x, y, length, angle = 0, extra = {}) => ({
   angle,
   ...extra,
 });
-function optical(points, { rot = [], ...extra } = {}) {
-  const mirrors = [];
-  for (let i = 1; i < points.length - 1; i++) {
-    if (points[i].wall) continue;
-    const incoming = unit(sub(points[i], points[i - 1])),
-      out = unit(sub(points[i + 1], points[i]));
-    const normal = unit(sub(incoming, out));
-    let angle = Math.atan2(normal.x, -normal.y);
-    angle = (angle + Math.PI) % Math.PI;
-    const index = mirrors.length,
-      rotatable = rot.includes(index);
-    mirrors.push({
-      id: "m" + index,
-      ...points[i],
-      angle: rotatable ? (angle - Math.PI / 4 + Math.PI) % Math.PI : angle,
-      length: 70,
-      rotatable,
-    });
-  }
-  return {
-    launcher: points[0],
-    mirrors,
-    solution: {
-      direction: unit(sub(points[1], points[0])),
-      rotations: rot.map((index) => ({ index, taps: 3 })),
-    },
-    ...extra,
-  };
-}
-const L = P(180, 466);
+const gate = (x, y, angle = 0, period = 3.4, open = 2.4) =>
+  B(x, y, 58, angle, { period, open });
+const moving = (x, y, axis = "x", range = 55, speed = 1.2) =>
+  B(x, y, 42, 0, { motion: { axis, range, speed, phase: Math.PI / 2 } });
+const single = (path, targets, extra = {}) => ({
+  paths: [path],
+  targets,
+  ...extra,
+});
+const fork = (root, left, right, targets, extra = {}) => ({
+  paths: [
+    [...root, ...left],
+    [...root, ...right],
+  ],
+  targets,
+  ...extra,
+});
 const specs = [
   [
     "First light",
-    "Drag from the launcher toward the target. Release to fire.",
-    {
-      launcher: L,
-      targets: [T(180, 130)],
-      solution: { direction: P(0, -1) },
-      shots: 3,
-      par: 1,
-      tutorial: "aim",
-    },
+    "Aim into the cyan mirror. The striped chamber blocks every direct shot.",
+    single(
+      [
+        [90, 458],
+        [90, 210],
+        [275, 210],
+      ],
+      [T(275, 210)],
+      { width: 36, shots: 3, requiredMirrors: 1, tutorial: "aim" },
+    ),
   ],
   [
     "A different angle",
-    "Cyan arena edges reflect. Bank around the dark barrier.",
-    optical([L, { ...P(344, 278), wall: true }, P(220, 136)], {
-      targets: [T(220, 136)],
-      barriers: [B(196, 300, 116, Math.PI / 2)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-    }),
+    "Bank left through the elbow. Firing toward the target hits the partition.",
+    single(
+      [
+        [270, 456],
+        [270, 270],
+        [80, 270],
+      ],
+      [T(80, 270)],
+      { width: 31, requiredMirrors: 1 },
+    ),
   ],
   [
     "The turning point",
-    "A mirror changes your direction, never your speed.",
-    optical([L, P(180, 280), P(290, 140)], {
-      targets: [T(290, 140)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-      tutorial: "mirror",
-    }),
+    "A diagonal approach, then a vertical exit. Find the mirror’s working angle.",
+    single(
+      [
+        [75, 450],
+        [230, 320],
+        [230, 100],
+      ],
+      [T(230, 100)],
+      { width: 30, requiredMirrors: 1 },
+    ),
   ],
   [
     "Through line",
-    "Targets let energy pass through. Line them up.",
-    {
-      launcher: P(100, 466),
-      targets: [T(100, 300), T(100, 128)],
-      solution: { direction: P(0, -1) },
-      shots: 3,
-      par: 1,
-    },
+    "One bank must pierce both cores in the far arm of the chamber.",
+    single(
+      [
+        [280, 450],
+        [115, 285],
+        [280, 120],
+      ],
+      [T(235, 165), T(280, 120)],
+      { width: 28, requiredMirrors: 1 },
+    ),
   ],
   [
     "Sidewinder",
-    "One bank. Two targets. Trace the return path.",
-    optical([P(120, 466), { ...P(344, 240), wall: true }, P(188, 83)], {
-      targets: [T(288, 184), T(220, 116)],
-      barriers: [B(168, 280, 90, Math.PI / 2)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-    }),
+    "Calibrate the violet mirror before committing to the return lane.",
+    single(
+      [
+        [75, 450],
+        [200, 340],
+        [90, 220],
+      ],
+      [T(90, 220)],
+      {
+        width: 28,
+        rot: { "200,340": 2 },
+        requiredMirrors: 1,
+        tutorial: "rotate",
+      },
+    ),
   ],
   [
     "Double take",
-    "Follow the light through two changes of direction.",
-    optical([L, P(90, 335), P(270, 210), P(120, 85)], {
-      targets: [T(156, 289), T(144, 105)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 2,
-    }),
+    "Two deliberate turns. A clipped first reflection misses the second mirror.",
+    single(
+      [
+        [70, 458],
+        [235, 340],
+        [100, 205],
+        [280, 90],
+      ],
+      [T(280, 90)],
+      { width: 29, requiredMirrors: 2 },
+    ),
   ],
   [
     "Change of mind",
-    "Tap the violet mirror to rotate it by 15°. Then take aim.",
-    optical([L, P(180, 285), P(290, 110)], {
-      rot: [0],
-      targets: [T(290, 110)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-      tutorial: "rotate",
-    }),
+    "Set the first mirror, then trace both reflections to the distant core.",
+    single(
+      [
+        [280, 458],
+        [100, 340],
+        [260, 210],
+        [80, 80],
+      ],
+      [T(80, 80)],
+      { width: 29, rot: { "100,340": 2 }, requiredMirrors: 2 },
+    ),
   ],
   [
     "Cross current",
-    "Set the upper mirror. Connect both sides of the arena.",
-    optical([P(80, 466), P(80, 275), P(280, 185), P(170, 65)], {
-      rot: [1],
-      targets: [T(180, 230), T(185, 82)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 2,
-    }),
+    "Set the upper mirror to send the horizontal pulse into the vertical firing lane.",
+    single(
+      [
+        [75, 456],
+        [75, 290],
+        [265, 290],
+        [265, 90],
+      ],
+      [T(265, 90)],
+      { width: 28, rot: { "265,290": 3 }, requiredMirrors: 2 },
+    ),
   ],
   [
     "Switchback",
-    "Three mirrors form a continuous optical circuit.",
-    optical([P(82, 466), P(82, 335), P(282, 255), P(100, 160), P(265, 70)], {
-      targets: [T(210, 218), T(240, 84)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 3,
-    }),
+    "Three changes of direction. Plan all of them before releasing.",
+    single(
+      [
+        [285, 456],
+        [285, 350],
+        [95, 350],
+        [95, 200],
+        [235, 100],
+      ],
+      [T(235, 100)],
+      { width: 27, requiredMirrors: 3 },
+    ),
   ],
   [
     "Counterweight",
-    "Two adjustable mirrors. Rotate, preview, refine.",
-    optical([P(280, 466), P(280, 330), P(85, 240), P(270, 100)], {
-      rot: [0, 1],
-      targets: [T(180, 286), T(245, 119)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 2,
-    }),
+    "Three mirrors, two calibrations. Each exit sets up the next approach.",
+    single(
+      [
+        [280, 458],
+        [150, 360],
+        [150, 230],
+        [285, 130],
+        [100, 65],
+      ],
+      [T(100, 65)],
+      {
+        width: 26,
+        rot: { "150,360": 2, "285,130": 3 },
+        requiredMirrors: 3,
+        shots: 3,
+      },
+    ),
   ],
   [
     "Reinforced",
-    "Amber rings need two separate pulses. Hits are persistent.",
-    optical([L, P(90, 310), P(285, 115)], {
-      targets: [T(268, 132, { hp: 2 })],
-      shots: 4,
-      par: 2,
-      perfectBounces: 2,
-      tutorial: "armor",
-    }),
+    "Two pulses through the same two-mirror corridor. Read the numbered core.",
+    single(
+      [
+        [75, 458],
+        [75, 280],
+        [260, 280],
+        [260, 90],
+      ],
+      [T(260, 90, { hp: 2 })],
+      {
+        width: 26,
+        requiredMirrors: 2,
+        shots: 3,
+        par: 2,
+        steps: 2,
+        tutorial: "armor",
+      },
+    ),
   ],
   [
     "Prism corridor",
-    "The first sector ends with a precise three-mirror route.",
-    optical([P(280, 466), P(265, 350), P(90, 245), P(270, 150), P(120, 58)], {
-      rot: [1],
-      targets: [T(178, 298), T(180, 198), T(150, 76)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 3,
-    }),
+    "Calibrate both ends of a three-turn firing corridor. The shell offers no bypass.",
+    single(
+      [
+        [285, 458],
+        [285, 350],
+        [90, 350],
+        [90, 200],
+        [270, 90],
+      ],
+      [T(270, 90)],
+      {
+        width: 25,
+        rot: { "285,350": 2, "90,200": 2 },
+        requiredMirrors: 3,
+        shots: 3,
+      },
+    ),
   ],
   [
     "Dead zone",
-    "Striped barriers absorb energy. Find a way around.",
-    optical([P(80, 466), P(80, 220), P(280, 110)], {
-      targets: [T(275, 113)],
-      barriers: [B(180, 280, 155, Math.PI / 2), B(250, 380, 115, 0)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-      tutorial: "barrier",
-    }),
-  ],
-  [
-    "Pendulum",
-    "Moving barriers repeat their motion. Watch before you fire.",
-    optical([P(90, 466), P(90, 250), P(285, 110)], {
-      targets: [T(275, 117)],
-      barriers: [
-        B(180, 340, 78, 0, {
-          motion: { axis: "x", range: 60, speed: 1.7, phase: 0 },
-        }),
+    "Watch the moving arm, then thread both mirrors. The direct diagonal is sealed.",
+    single(
+      [
+        [75, 458],
+        [240, 340],
+        [95, 210],
+        [270, 90],
       ],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-      tutorial: "moving",
-    }),
+      [T(270, 90)],
+      {
+        width: 27,
+        requiredMirrors: 2,
+        shots: 3,
+        extras: [moving(200, 400)],
+        tutorial: "moving",
+      },
+    ),
   ],
   [
     "Open window",
-    "A dashed amber gate is open. A solid gate absorbs the pulse.",
-    {
-      launcher: L,
-      targets: [T(180, 110)],
-      barriers: [B(180, 290, 160, 0, { period: 2.8, open: 1.35, phase: 0 })],
-      solution: { direction: P(0, -1), wait: 0 },
-      shots: 3,
-      par: 1,
-      tutorial: "gate",
-    },
+    "A broad gate window protects a two-mirror route. Fire while the gate is dashed.",
+    single(
+      [
+        [285, 458],
+        [120, 315],
+        [270, 180],
+        [90, 90],
+      ],
+      [T(90, 90)],
+      {
+        width: 27,
+        requiredMirrors: 2,
+        shots: 3,
+        extras: [gate(202.5, 386.5, -0.857, 3.4, 2.4)],
+        tutorial: "gate",
+      },
+    ),
   ],
   [
     "Interlock",
-    "Route past the moving arm into a long diagonal bank.",
-    optical([P(75, 466), P(75, 290), P(280, 200), P(160, 70)], {
-      rot: [1],
-      targets: [T(178, 245), T(175, 86)],
-      barriers: [
-        B(200, 370, 70, 0, {
-          motion: { axis: "x", range: 65, speed: 1.4, phase: 0 },
-        }),
-        B(170, 156, 66, Math.PI / 2),
+    "Set the second mirror, then pass the gate after the first reflection.",
+    single(
+      [
+        [70, 458],
+        [220, 350],
+        [90, 220],
+        [260, 90],
       ],
-      shots: 3,
-      par: 1,
-      perfectBounces: 2,
-    }),
+      [T(260, 90)],
+      {
+        width: 25,
+        rot: { "90,220": 2 },
+        requiredMirrors: 2,
+        shots: 3,
+        extras: [gate(155, 285, -Math.PI / 4, 3.6, 2.6)],
+      },
+    ),
+  ],
+  [
+    "Switchyard",
+    "Clear the left pocket, rotate the hub three taps clockwise, then clear the right.",
+    fork(
+      [
+        [180, 458],
+        [180, 260],
+      ],
+      [[70, 150]],
+      [[290, 150]],
+      [T(70, 150), T(290, 150)],
+      {
+        width: 27,
+        rot: { "180,260": 2 },
+        requiredMirrors: 1,
+        shots: 3,
+        par: 2,
+        steps: [{}, { rotations: [{ point: "180,260", taps: 3 }] }],
+      },
+    ),
   ],
   [
     "Twice as bright",
-    "A gate and a reinforced target. Time both pulses.",
-    optical([P(275, 466), P(275, 290), P(85, 130)], {
-      targets: [T(102, 144, { hp: 2 })],
-      barriers: [B(275, 385, 94, 0, { period: 2.5, open: 1.9, phase: 0 })],
-      shots: 4,
-      par: 2,
-      perfectBounces: 2,
-    }),
+    "Clear the left arm. Turn the hub three taps, then send two pulses into the armored right arm.",
+    fork(
+      [
+        [180, 458],
+        [180, 290],
+      ],
+      [
+        [80, 190],
+        [80, 100],
+      ],
+      [
+        [280, 190],
+        [280, 100],
+      ],
+      [T(80, 100), T(280, 100, { hp: 2 })],
+      {
+        width: 26,
+        rot: { "180,290": 2 },
+        requiredMirrors: 2,
+        shots: 4,
+        par: 3,
+        steps: [{}, { rotations: [{ point: "180,290", taps: 3 }] }, {}],
+      },
+    ),
   ],
   [
     "Narrow escape",
-    "The machinery moves. The reflection law stays the same.",
-    optical([P(75, 466), P(75, 310), P(285, 205), P(110, 70)], {
-      rot: [0],
-      targets: [T(200, 247), T(132, 87)],
-      barriers: [
-        B(190, 385, 88, 0, { motion: { axis: "x", range: 55, speed: 1.9 } }),
-        B(150, 170, 65, Math.PI / 2, { period: 3, open: 1.5, phase: 0.2 }),
+    "Bank into the hub, clear the left core, turn the hub three taps, then clear the right.",
+    fork(
+      [
+        [70, 458],
+        [180, 370],
+        [180, 270],
       ],
-      shots: 3,
-      par: 1,
-      perfectBounces: 2,
-    }),
+      [[70, 160]],
+      [[290, 160]],
+      [T(70, 160), T(290, 160)],
+      {
+        width: 26,
+        rot: { "180,370": 2, "180,270": 2 },
+        requiredMirrors: 2,
+        shots: 3,
+        par: 2,
+        steps: [{}, { rotations: [{ point: "180,270", taps: 3 }] }],
+        extras: [moving(135, 410, "x", 55, (2 * Math.PI) / 3.6)],
+        alignPeriod: 3.6,
+      },
+    ),
   ],
   [
     "Divide the light",
-    "A prism splits one pulse into two at ±30°.",
+    "Two mirrors feed the prism. Both branches must reach their isolated cores.",
     {
-      launcher: L,
-      splitters: [{ id: "s0", x: 180, y: 300 }],
-      targets: [T(105, 170), T(255, 170)],
-      solution: { direction: P(0, -1) },
+      paths: [
+        [
+          [70, 458],
+          [70, 280],
+          [180, 280],
+          [180, 170],
+          [120, 66],
+        ],
+        [
+          [70, 458],
+          [70, 280],
+          [180, 280],
+          [180, 170],
+          [240, 66],
+        ],
+      ],
+      targets: [T(120, 66), T(240, 66)],
+      splitters: [{ x: 180, y: 170 }],
+      width: 25,
+      endCap: 18,
+      requiredMirrors: 2,
       shots: 3,
-      par: 1,
       tutorial: "split",
     },
   ],
   [
     "Domino effect",
-    "Destroy a linked target to burst everything inside its ring.",
-    {
-      launcher: P(90, 466),
-      targets: [
-        T(90, 250, { chain: 85 }),
-        T(150, 205, { chain: 85 }),
-        T(215, 170, { chain: 85 }),
-        T(275, 120),
+    "Reach the linked array through two mirrors. Its burst completes the remote pocket.",
+    single(
+      [
+        [280, 458],
+        [100, 330],
+        [260, 210],
+        [125, 110],
       ],
-      barriers: [B(210, 330, 140, 0)],
-      solution: { direction: P(0, -1) },
-      shots: 3,
-      par: 1,
-      tutorial: "chain",
-    },
+      [T(125, 110, { chain: 75 }), T(185, 100, { chain: 70 }), T(205, 135)],
+      {
+        width: 26,
+        requiredMirrors: 2,
+        shots: 3,
+        rooms: [{ x: 105, y: 65, w: 123, h: 110 }],
+        tutorial: "chain",
+      },
+    ),
   ],
   [
     "Twin circuit",
-    "Split the pulse. Both branches have work to do.",
+    "Pass the gate and both mirrors, then split the pulse into two independent chains.",
     {
-      launcher: L,
-      splitters: [{ id: "s0", x: 180, y: 340 }],
-      targets: [
-        T(100, 201, { chain: 82 }),
-        T(70, 125),
-        T(260, 201, { chain: 82 }),
-        T(290, 125),
+      paths: [
+        [
+          [285, 458],
+          [285, 320],
+          [180, 320],
+          [180, 170],
+          [120, 66],
+        ],
+        [
+          [285, 458],
+          [285, 320],
+          [180, 320],
+          [180, 170],
+          [240, 66],
+        ],
       ],
-      barriers: [B(180, 210, 100, Math.PI / 2)],
-      solution: { direction: P(0, -1) },
+      targets: [
+        T(120, 66, { chain: 70 }),
+        T(70, 90),
+        T(240, 66, { chain: 70 }),
+        T(290, 90),
+      ],
+      splitters: [{ x: 180, y: 170 }],
+      rooms: [
+        { x: 48, y: 46, w: 94, h: 68 },
+        { x: 218, y: 46, w: 94, h: 68 },
+      ],
+      width: 25,
+      endCap: 18,
+      requiredMirrors: 2,
       shots: 3,
-      par: 1,
+      extras: [gate(285, 390)],
     },
   ],
   [
     "Resonance",
-    "Reinforced pairs require two perfectly aligned cascades.",
+    "Calibrate the feed mirror. Both prism branches need two pulses; use the next gate cycle.",
     {
-      launcher: L,
-      splitters: [{ id: "s0", x: 180, y: 320 }],
-      targets: [T(105, 190, { hp: 2 }), T(255, 190, { hp: 2 })],
-      solution: { direction: P(0, -1) },
-      shots: 4,
+      paths: [
+        [
+          [75, 458],
+          [75, 280],
+          [180, 280],
+          [180, 170],
+          [120, 66],
+        ],
+        [
+          [75, 458],
+          [75, 280],
+          [180, 280],
+          [180, 170],
+          [240, 66],
+        ],
+      ],
+      targets: [T(120, 66, { hp: 2 }), T(240, 66, { hp: 2 })],
+      splitters: [{ x: 180, y: 170 }],
+      width: 25,
+      endCap: 18,
+      rot: { "180,280": 2 },
+      requiredMirrors: 2,
+      shots: 3,
       par: 2,
+      steps: 2,
+      alignPeriod: 3.4,
+      extras: [gate(75, 375)],
     },
   ],
   [
     "Threefold",
-    "A second prism branches again. Let the whole circuit unfold.",
-    {
-      launcher: L,
-      splitters: [
-        { id: "s0", x: 180, y: 360 },
-        { id: "s1", x: 110, y: 239 },
+    "Align both pocket mirrors. Clear the left chain, switch the hub three taps, clear the right.",
+    fork(
+      [
+        [180, 458],
+        [180, 290],
       ],
-      targets: [T(265, 213), T(110, 105), T(35, 196)],
-      solution: { direction: P(0, -1) },
-      shots: 3,
-      par: 1,
-    },
+      [
+        [80, 190],
+        [80, 100],
+      ],
+      [
+        [280, 190],
+        [280, 100],
+      ],
+      [
+        T(80, 100, { chain: 70 }),
+        T(120, 65),
+        T(280, 100, { chain: 70 }),
+        T(240, 65),
+      ],
+      {
+        width: 25,
+        rot: { "180,290": 2, "80,190": 2, "280,190": 2 },
+        rooms: [
+          { x: 52, y: 44, w: 90, h: 78 },
+          { x: 218, y: 44, w: 90, h: 78 },
+        ],
+        requiredMirrors: 2,
+        shots: 3,
+        par: 2,
+        steps: [{}, { rotations: [{ point: "180,290", taps: 3 }] }],
+      },
+    ),
   ],
   [
     "Cascade chamber",
-    "Set the mirror and send a pulse into the branching circuit.",
-    optical([P(80, 466), P(80, 345), P(235, 215)], {
-      rot: [0],
-      splitters: [{ id: "s0", x: 235, y: 215 }],
-      targets: [
-        T(270, 95, { chain: 80 }),
-        T(215, 60),
-        T(310, 195, { chain: 80 }),
-        T(285, 245),
-      ],
-      barriers: [B(175, 380, 105, Math.PI / 2)],
-      shots: 3,
-      par: 1,
-      perfectBounces: 1,
-    }),
-  ],
-  [
-    "Fault line",
-    "Route around the central spine and trigger the linked array.",
-    optical([P(75, 466), P(75, 300), P(285, 200), P(125, 90)], {
-      rot: [1],
-      targets: [T(150, 107, { chain: 75 }), T(205, 66), T(85, 72)],
-      barriers: [
-        B(190, 370, 120, Math.PI / 2),
-        B(180, 260, 75, Math.PI / 2, { period: 3, open: 1.8 }),
-      ],
-      shots: 3,
-      par: 1,
-      perfectBounces: 2,
-    }),
-  ],
-  [
-    "Phase shift",
-    "A moving arm, a timed gate, and one deliberate bank.",
-    optical([P(280, 466), P(280, 270), P(85, 110)], {
-      rot: [0],
-      targets: [T(110, 131, { hp: 2 })],
-      barriers: [
-        B(280, 365, 90, 0, { period: 2.5, open: 1.9 }),
-        B(160, 310, 65, 0, { motion: { axis: "y", range: 55, speed: 1.6 } }),
-      ],
-      shots: 4,
-      par: 2,
-      perfectBounces: 2,
-    }),
-  ],
-  [
-    "Critical mass",
-    "Feed the prism through the open gate. Collapse both chains.",
+    "Two banks, then two prism stages. Three branches must survive the full circuit.",
     {
-      launcher: L,
-      splitters: [{ id: "s0", x: 180, y: 320 }],
-      targets: [
-        T(105, 177, { chain: 85 }),
-        T(65, 110),
-        T(255, 177, { chain: 85 }),
-        T(295, 110),
+      paths: [
+        [
+          [75, 458],
+          [75, 340],
+          [180, 340],
+          [180, 250],
+          [110, 129],
+          [54, 97],
+        ],
+        [
+          [75, 458],
+          [75, 340],
+          [180, 340],
+          [180, 250],
+          [110, 129],
+          [110, 65],
+        ],
+        [
+          [75, 458],
+          [75, 340],
+          [180, 340],
+          [180, 250],
+          [260, 111],
+        ],
       ],
-      barriers: [
-        B(180, 400, 130, 0, { period: 2.6, open: 1.6 }),
-        B(180, 190, 110, Math.PI / 2),
+      targets: [T(54, 97), T(110, 65), T(260, 111)],
+      splitters: [
+        { x: 180, y: 250 },
+        { x: 110, y: 129 },
       ],
-      solution: { direction: P(0, -1) },
+      width: 23,
+      endCap: 17,
+      rot: { "75,340": 2 },
+      requiredMirrors: 2,
       shots: 3,
-      par: 1,
     },
   ],
   [
-    "Event horizon",
-    "Two adjustable mirrors lead to a moving, gated finale.",
-    optical([P(80, 466), P(80, 330), P(280, 240), P(100, 120)], {
-      rot: [0, 1],
-      targets: [T(178, 286), T(125, 137, { hp: 2 })],
-      barriers: [
-        B(180, 395, 70, 0, { motion: { axis: "x", range: 45, speed: 1.5 } }),
-        B(180, 174, 70, Math.PI / 2, { period: 2.8, open: 2.1 }),
+    "Fault line",
+    "Calibrate a three-bank route. Break the armored linked core with two well-timed pulses.",
+    single(
+      [
+        [285, 458],
+        [285, 350],
+        [90, 350],
+        [90, 200],
+        [245, 95],
       ],
-      shots: 4,
-      par: 2,
-      perfectBounces: 4,
-    }),
+      [T(245, 95, { hp: 2, chain: 70 }), T(285, 135), T(195, 90)],
+      {
+        width: 24,
+        rot: { "285,350": 2, "90,200": 2 },
+        rooms: [{ x: 174, y: 65, w: 137, h: 91 }],
+        requiredMirrors: 3,
+        shots: 3,
+        par: 2,
+        steps: 2,
+        alignPeriod: 3.4,
+        extras: [gate(90, 275, 0, 3.4, 2.5)],
+      },
+    ),
+  ],
+  [
+    "Phase shift",
+    "Bank into the hub. Each arm adds a cyan wall bank. Clear left, then switch three taps right.",
+    fork(
+      [
+        [70, 458],
+        [180, 370],
+        [180, 270],
+      ],
+      [
+        [70, 160],
+        [70, 65],
+      ],
+      [
+        [290, 160],
+        [290, 65],
+      ],
+      [T(70, 65), T(290, 65)],
+      {
+        width: 24,
+        rot: { "180,270": 2 },
+        walls: ["70,160", "290,160"],
+        requiredMirrors: 2,
+        shots: 3,
+        par: 2,
+        steps: [{}, { rotations: [{ point: "180,270", taps: 3 }] }],
+        extras: [gate(180, 320, 0, 3.6, 2.6)],
+      },
+    ),
+  ],
+  [
+    "Critical mass",
+    "Set all three adjustable mirrors. Two left pulses, three hub taps, one right pulse.",
+    fork(
+      [
+        [285, 458],
+        [180, 370],
+        [180, 270],
+      ],
+      [
+        [70, 160],
+        [70, 65],
+      ],
+      [
+        [290, 160],
+        [290, 65],
+      ],
+      [T(70, 65, { hp: 2 }), T(290, 65)],
+      {
+        width: 24,
+        rot: { "180,270": 2, "70,160": 2, "290,160": 2 },
+        requiredMirrors: 3,
+        shots: 4,
+        par: 3,
+        steps: [{}, {}, { rotations: [{ point: "180,270", taps: 3 }] }],
+        alignPeriod: 3.8,
+        extras: [
+          gate(180, 320, 0, 3.8, 2.7),
+          { ...moving(250, 420, "x", 40, (2 * Math.PI) / 3.8), length: 36 },
+        ],
+      },
+    ),
+  ],
+  [
+    "Event horizon",
+    "Two calibrated paths feed separate prisms. Each pocket needs two pulses; switch the hub after the left.",
+    {
+      paths: [
+        [
+          [180, 458],
+          [180, 290],
+          [80, 190],
+          [80, 130],
+          [52, 82],
+        ],
+        [
+          [180, 458],
+          [180, 290],
+          [80, 190],
+          [80, 130],
+          [108, 82],
+        ],
+        [
+          [180, 458],
+          [180, 290],
+          [280, 190],
+          [280, 130],
+          [252, 82],
+        ],
+        [
+          [180, 458],
+          [180, 290],
+          [280, 190],
+          [280, 130],
+          [308, 82],
+        ],
+      ],
+      targets: [
+        T(52, 82, { hp: 2 }),
+        T(108, 82, { chain: 64 }),
+        T(252, 82, { hp: 2 }),
+        T(308, 82, { chain: 64 }),
+      ],
+      splitters: [
+        { x: 80, y: 130 },
+        { x: 280, y: 130 },
+      ],
+      width: 25,
+      mirrorLength: 74,
+      endCap: 17,
+      rot: { "180,290": 2, "80,190": 2, "280,190": 2 },
+      requiredMirrors: 2,
+      shots: 5,
+      par: 4,
+      steps: [{}, {}, { rotations: [{ point: "180,290", taps: 3 }] }, {}],
+      extras: [gate(180, 370, 0, 3.8, 2.7)],
+      alignPeriod: 3.8,
+    },
   ],
   [
     "The last angle",
-    "Three turns. A reinforced core. Keep the entire path in mind.",
-    optical([P(280, 466), P(280, 350), P(85, 245), P(270, 150), P(115, 60)], {
-      rot: [0, 2],
-      targets: [T(180, 296), T(180, 196), T(145, 77, { hp: 2 })],
-      barriers: [
-        B(160, 410, 105, 0, { motion: { axis: "x", range: 40, speed: 1.5 } }),
+    "Four banks must reach the armored core. Calibrate every violet mirror before firing.",
+    single(
+      [
+        [75, 458],
+        [75, 360],
+        [280, 360],
+        [280, 230],
+        [90, 230],
+        [220, 90],
       ],
-      shots: 4,
-      par: 2,
-      perfectBounces: 6,
-    }),
+      [T(220, 90, { hp: 2, r: 10 })],
+      {
+        width: 24,
+        rot: { "75,360": 2, "280,360": 2, "90,230": 2 },
+        requiredMirrors: 4,
+        shots: 3,
+        par: 2,
+        steps: 2,
+        alignPeriod: 3.8,
+        extras: [
+          gate(280, 295, 0, 3.8, 2.8),
+          moving(120, 410, "x", 50, (2 * Math.PI) / 3.8),
+        ],
+      },
+    ),
   ],
   [
     "Zero point",
-    "One final circuit. Every angle matters.",
-    optical([P(75, 466), P(75, 350), P(245, 225)], {
-      rot: [0],
-      splitters: [{ id: "s0", x: 245, y: 225 }],
+    "Calibrate the feed and hub. Bank, split and break the left armor twice; switch the hub three taps and repeat right.",
+    {
+      paths: [
+        [
+          [285, 458],
+          [180, 370],
+          [180, 270],
+          [80, 170],
+          [80, 130],
+          [52, 82],
+        ],
+        [
+          [285, 458],
+          [180, 370],
+          [180, 270],
+          [80, 170],
+          [80, 130],
+          [108, 82],
+        ],
+        [
+          [285, 458],
+          [180, 370],
+          [180, 270],
+          [280, 170],
+          [280, 130],
+          [252, 82],
+        ],
+        [
+          [285, 458],
+          [180, 370],
+          [180, 270],
+          [280, 170],
+          [280, 130],
+          [308, 82],
+        ],
+      ],
       targets: [
-        T(280, 100, { chain: 82 }),
-        T(225, 65),
-        T(315, 217, { chain: 82 }),
-        T(290, 220, { hp: 2 }),
+        T(52, 82, { hp: 2 }),
+        T(108, 82, { chain: 64 }),
+        T(252, 82, { hp: 2 }),
+        T(308, 82, { chain: 64 }),
       ],
-      barriers: [
-        B(75, 415, 76, 0, { period: 2.6, open: 1.8 }),
-        B(170, 380, 75, Math.PI / 2, {
-          motion: { axis: "y", range: 25, speed: 1.4 },
-        }),
+      splitters: [
+        { x: 80, y: 130 },
+        { x: 280, y: 130 },
       ],
-      shots: 4,
-      par: 2,
-      perfectBounces: 2,
-    }),
+      walls: ["80,170", "280,170"],
+      width: 25,
+      mirrorLength: 74,
+      endCap: 17,
+      rot: { "180,370": 2, "180,270": 2 },
+      requiredMirrors: 2,
+      shots: 5,
+      par: 4,
+      steps: [{}, {}, { rotations: [{ point: "180,270", taps: 3 }] }, {}],
+      extras: [
+        gate(180, 320, 0, 3.6, 2.5),
+        { ...moving(250, 420, "x", 40, (2 * Math.PI) / 3.6), length: 30 },
+      ],
+      alignPeriod: 3.6,
+    },
   ],
 ];
-export const LEVELS = specs.map(([name, hint, data], i) => ({
-  id: i + 1,
-  name,
-  hint,
-  tier: Math.floor(i / 6),
-  shots: 3,
-  par: 1,
-  perfectBounces: 0,
-  ...data,
-}));
-LEVELS[27].solution.alignPeriod = 2.8;
+export const LEVELS = specs.map(([name, hint, definition], i) => {
+  const level = opticalArena(definition);
+  level.id = i + 1;
+  level.name = name;
+  level.hint = hint;
+  level.tier = Math.floor(i / 6);
+  level.revision = CAMPAIGN_REVISION;
+  level.perfectBounces = level.requiredMirrors * level.par;
+  level.solution.steps = level.solution.steps.map((step) => ({
+    ...step,
+    rotations: (step.rotations || []).map((r) => ({
+      index: level.mirrors.findIndex(
+        (m) => `${m.anchor.x},${m.anchor.y}` === r.point,
+      ),
+      taps: r.taps,
+    })),
+  }));
+  level.solution.alignPeriod = definition.alignPeriod;
+  return level;
+});
+
 export const CHALLENGES = [
   {
     id: 31,
     name: "Needlework",
     tier: 1,
     unlock: 12,
-    hint: "A smaller target. A single pulse. No second chances.",
-    ...optical([P(80, 466), P(80, 300), P(280, 130)], {
-      rot: [0],
-      targets: [T(280, 130, { r: 7 })],
-      shots: 1,
-      par: 1,
-      perfectBounces: 1,
-    }),
+    hint: "One calibrated bank. One small core. One pulse.",
+    ...opticalArena(
+      single(
+        [
+          [275, 458],
+          [100, 300],
+          [275, 120],
+        ],
+        [T(275, 120, { r: 7 })],
+        {
+          width: 25,
+          rot: { "100,300": 2 },
+          requiredMirrors: 1,
+          shots: 1,
+          par: 1,
+          perfectBounces: 1,
+        },
+      ),
+    ),
   },
   {
     id: 32,
     name: "Chain of command",
     tier: 3,
     unlock: 24,
-    hint: "One pulse must trigger both linked arrays.",
-    launcher: L,
-    splitters: [{ id: "s0", x: 180, y: 350 }],
-    targets: [
-      T(100, 198, { chain: 77 }),
-      T(55, 142),
-      T(260, 198, { chain: 77 }),
-      T(305, 142),
-    ],
-    barriers: [B(180, 210, 100, Math.PI / 2)],
-    solution: { direction: P(0, -1) },
-    shots: 1,
-    par: 1,
+    hint: "Two banks feed a prism. Trigger both arrays with a single pulse.",
+    ...opticalArena({
+      paths: [
+        [
+          [75, 458],
+          [75, 280],
+          [180, 280],
+          [180, 170],
+          [120, 66],
+        ],
+        [
+          [75, 458],
+          [75, 280],
+          [180, 280],
+          [180, 170],
+          [240, 66],
+        ],
+      ],
+      targets: [
+        T(120, 66, { chain: 70 }),
+        T(70, 90),
+        T(240, 66, { chain: 70 }),
+        T(290, 90),
+      ],
+      splitters: [{ x: 180, y: 170 }],
+      rooms: [
+        { x: 48, y: 46, w: 94, h: 68 },
+        { x: 218, y: 46, w: 94, h: 68 },
+      ],
+      width: 24,
+      endCap: 18,
+      requiredMirrors: 2,
+      shots: 1,
+      par: 1,
+      perfectBounces: 2,
+    }),
   },
   {
     id: 33,
     name: "Absolute zero",
     tier: 4,
     unlock: 30,
-    hint: "The complete circuit. One chance to get it right.",
-    ...optical(
-      [P(280, 466), P(280, 345), P(85, 245), P(270, 150), P(120, 62)],
-      {
-        rot: [0, 1, 2],
-        targets: [
-          T(180, 294, { r: 9 }),
-          T(180, 196, { r: 9 }),
-          T(145, 77, { r: 9 }),
+    hint: "Four banks. Three calibrations. A single precise pulse.",
+    ...opticalArena(
+      single(
+        [
+          [75, 458],
+          [75, 360],
+          [280, 360],
+          [280, 230],
+          [90, 230],
+          [220, 90],
         ],
-        shots: 1,
-        par: 1,
-        perfectBounces: 3,
-      },
+        [T(220, 90, { r: 8 })],
+        {
+          width: 24,
+          rot: { "75,360": 2, "280,360": 2, "90,230": 2 },
+          requiredMirrors: 4,
+          shots: 1,
+          par: 1,
+          perfectBounces: 4,
+        },
+      ),
     ),
   },
 ];

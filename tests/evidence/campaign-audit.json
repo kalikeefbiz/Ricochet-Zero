@@ -1,0 +1,1136 @@
+[
+  {
+    "id": 1,
+    "name": "First light",
+    "requiredMirrorsPerTarget": 1,
+    "solutionMirrorReflections": 1,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 1,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 2,
+    "name": "A different angle",
+    "requiredMirrorsPerTarget": 1,
+    "solutionMirrorReflections": 1,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 1,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 3,
+    "name": "The turning point",
+    "requiredMirrorsPerTarget": 1,
+    "solutionMirrorReflections": 1,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 1,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 4,
+    "name": "Through line",
+    "requiredMirrorsPerTarget": 1,
+    "solutionMirrorReflections": 1,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 1,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 5,
+    "name": "Sidewinder",
+    "requiredMirrorsPerTarget": 1,
+    "solutionMirrorReflections": 1,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 1,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 8940,
+    "passed": true
+  },
+  {
+    "id": 6,
+    "name": "Double take",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 7,
+    "name": "Change of mind",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 8940,
+    "passed": true
+  },
+  {
+    "id": 8,
+    "name": "Cross current",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 8940,
+    "passed": true
+  },
+  {
+    "id": 9,
+    "name": "Switchback",
+    "requiredMirrorsPerTarget": 3,
+    "solutionMirrorReflections": 3,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 2,
+    "solved": true,
+    "minimumObservedTargetMirrors": 3,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 10,
+    "name": "Counterweight",
+    "requiredMirrorsPerTarget": 3,
+    "solutionMirrorReflections": 3,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 3,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 49,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 14305,
+    "passed": true
+  },
+  {
+    "id": 11,
+    "name": "Reinforced",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 4,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 12,
+    "name": "Prism corridor",
+    "requiredMirrorsPerTarget": 3,
+    "solutionMirrorReflections": 3,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 3,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 51,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 14595,
+    "passed": true
+  },
+  {
+    "id": 13,
+    "name": "Dead zone",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 14,
+    "name": "Open window",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 15,
+    "name": "Interlock",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 8940,
+    "passed": true
+  },
+  {
+    "id": 16,
+    "name": "Switchyard",
+    "requiredMirrorsPerTarget": 1,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 1,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 10380,
+    "passed": true
+  },
+  {
+    "id": 17,
+    "name": "Twice as bright",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 6,
+    "solutionWallReflections": 0,
+    "solutionShots": 3,
+    "minimumSampledShots": 3,
+    "shotLimit": 4,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 10380,
+    "passed": true
+  },
+  {
+    "id": 18,
+    "name": "Narrow escape",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 4,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 62,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 17630,
+    "passed": true
+  },
+  {
+    "id": 19,
+    "name": "Divide the light",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 20,
+    "name": "Domino effect",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 21,
+    "name": "Twin circuit",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 4
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 4
+      }
+    ],
+    "rotationRequired": null,
+    "configurations": 2,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 6050,
+    "passed": true
+  },
+  {
+    "id": 22,
+    "name": "Resonance",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 4,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 8940,
+    "passed": true
+  },
+  {
+    "id": 23,
+    "name": "Threefold",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 4,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 4
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 158,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 31550,
+    "passed": true
+  },
+  {
+    "id": 24,
+    "name": "Cascade chamber",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 2,
+    "solutionWallReflections": 0,
+    "solutionShots": 1,
+    "minimumSampledShots": 1,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 8940,
+    "passed": true
+  },
+  {
+    "id": 25,
+    "name": "Fault line",
+    "requiredMirrorsPerTarget": 3,
+    "solutionMirrorReflections": 6,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 3,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 3
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 51,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 14595,
+    "passed": true
+  },
+  {
+    "id": 26,
+    "name": "Phase shift",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 4,
+    "solutionWallReflections": 2,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 2,
+        "kind": "wall",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 3,
+        "kind": "wall",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 12,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 10380,
+    "passed": true
+  },
+  {
+    "id": 27,
+    "name": "Critical mass",
+    "requiredMirrorsPerTarget": 3,
+    "solutionMirrorReflections": 9,
+    "solutionWallReflections": 0,
+    "solutionShots": 3,
+    "minimumSampledShots": 3,
+    "shotLimit": 4,
+    "solved": true,
+    "minimumObservedTargetMirrors": 3,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 3,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 158,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 31550,
+    "passed": true
+  },
+  {
+    "id": 28,
+    "name": "Event horizon",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 8,
+    "solutionWallReflections": 0,
+    "solutionShots": 4,
+    "minimumSampledShots": 4,
+    "shotLimit": 5,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 4
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 155,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 31115,
+    "passed": true
+  },
+  {
+    "id": 29,
+    "name": "The last angle",
+    "requiredMirrorsPerTarget": 4,
+    "solutionMirrorReflections": 8,
+    "solutionWallReflections": 0,
+    "solutionShots": 2,
+    "minimumSampledShots": 2,
+    "shotLimit": 3,
+    "solved": true,
+    "minimumObservedTargetMirrors": 4,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 2,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      },
+      {
+        "mirror": 3,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 1
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 135,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 26775,
+    "passed": true
+  },
+  {
+    "id": 30,
+    "name": "Zero point",
+    "requiredMirrorsPerTarget": 2,
+    "solutionMirrorReflections": 8,
+    "solutionWallReflections": 4,
+    "solutionShots": 4,
+    "minimumSampledShots": 4,
+    "shotLimit": 5,
+    "solved": true,
+    "minimumObservedTargetMirrors": 2,
+    "zeroReflectionTargetContacts": 0,
+    "mirrorRemovedTargetContacts": 0,
+    "mirrorAbsorbingTargetContacts": 0,
+    "shortcuts": [],
+    "essentialMirrors": [
+      {
+        "mirror": 0,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 4
+      },
+      {
+        "mirror": 1,
+        "kind": "mirror",
+        "essential": true,
+        "unreachableTargets": 4
+      },
+      {
+        "mirror": 2,
+        "kind": "wall",
+        "essential": true,
+        "unreachableTargets": 2
+      },
+      {
+        "mirror": 3,
+        "kind": "wall",
+        "essential": true,
+        "unreachableTargets": 2
+      }
+    ],
+    "rotationRequired": true,
+    "configurations": 63,
+    "anglesFull": 0.25,
+    "anglesConfigurations": 0.25,
+    "sampledRays": 17775,
+    "passed": true
+  }
+]

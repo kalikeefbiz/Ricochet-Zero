@@ -1,14 +1,15 @@
 {
   "name": "blackhouse-ricochet-zero",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "Ricochet Zero — Every angle matters. BlackHouse Arcade.",
   "scripts": {
     "dev": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "verify": "node tests/verify-campaign.mjs",
-    "test:e2e": "npm run verify && node tests/browser.mjs"
+    "verify": "node tests/verify-campaign.mjs && node tests/audit-campaign.mjs && node tests/fairness-campaign.mjs",
+    "test:e2e": "npm run verify && node tests/browser.mjs",
+    "audit": "node tests/audit-campaign.mjs"
   },
   "devDependencies": {
     "playwright": "1.57.0"

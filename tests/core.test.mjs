@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
@@ -30,6 +31,13 @@ import {
 } from "../dist/js/save.js";
 import { ALL_LEVELS, LEVELS } from "../dist/js/levels.js";
 import { solve } from "./verify-campaign.mjs";
+const CLASSIC = Object.fromEntries(
+  JSON.parse(
+    fs.readFileSync(
+      new URL("./fixtures/classic-mechanics.json", import.meta.url),
+    ),
+  ).map((l) => [l.id, l]),
+);
 const near = (a, b, eps = 1e-8) =>
   assert.ok(Math.abs(a - b) < eps, `${a} != ${b}`);
 const basic = (extra = {}) => ({
@@ -124,14 +132,13 @@ test("target destruction, all-target completion and efficient score", () => {
   assert.equal(a.status, "cleared");
   assert.equal(a.targets[0].hp, 0);
   assert.equal(a.shots, 1);
-  assert.deepEqual(
-    { ...rating(a), score: 0 },
-    { stars: 3, perfect: true, shots: 1, score: 0 },
-  );
+  assert.equal(rating(a).stars, 3);
+  assert.equal(rating(a).perfect, true);
+  assert.equal(rating(a).accuracy, 1);
   assert.ok(rating(a).score > 1000);
 });
 test("armored targets require distinct shots even through a splitter", () => {
-  const a = new Arena(LEVELS[21]);
+  const a = new Arena(CLASSIC[22]);
   for (let i = 0; i < 2; i++) {
     a.fire({ x: 0, y: -1 });
     a.settle();
@@ -141,7 +148,7 @@ test("armored targets require distinct shots even through a splitter", () => {
   assert.equal(a.shots, 2);
 });
 test("chain reactions propagate recursively with no duplicate destruction", () => {
-  const a = new Arena(LEVELS[19]);
+  const a = new Arena(CLASSIC[20]);
   a.fire({ x: 0, y: -1 });
   a.settle();
   assert.equal(a.status, "cleared");
@@ -191,10 +198,10 @@ test("mirror rotation is 15 degrees, wraps and is locked during flight", () => {
   near(a.mirrors[0].angle, before);
   a.fire({ x: 0, y: -1 });
   assert.equal(a.rotateMirror(0), false);
-  assert.equal(new Arena(LEVELS[2]).rotateMirror(0), false);
+  assert.equal(new Arena(CLASSIC[3]).rotateMirror(0), false);
 });
 test("splitter produces symmetric branches with bounded inheritance", () => {
-  const a = new Arena(LEVELS[18]);
+  const a = new Arena(CLASSIC[19]);
   a.fire({ x: 0, y: -1 });
   for (let i = 0; i < 90 && a.projectiles.length === 1; i++) a.step();
   const split = a.projectiles.slice(1);
@@ -233,18 +240,18 @@ test("moving barriers and gates are deterministic", () => {
       0.5,
     ),
   );
-  const a = new Arena(LEVELS[14]);
+  const a = new Arena(CLASSIC[15]);
   a.fire({ x: 0, y: -1 });
   a.settle();
   assert.equal(a.status, "cleared");
-  const b = new Arena(LEVELS[14]);
+  const b = new Arena(CLASSIC[15]);
   b.time = 1.3;
   b.fire({ x: 0, y: -1 });
   b.settle();
   assert.ok(b.events.some((e) => e.type === "absorb"));
 });
 test("aim preview agrees with first real collision", () => {
-  const a = new Arena(LEVELS[2]),
+  const a = new Arena(CLASSIC[3]),
     path = preview(a, { x: 0, y: -1 });
   a.fire({ x: 0, y: -1 });
   let event;

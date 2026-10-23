@@ -141,10 +141,10 @@ function startLevel(id) {
   $("#side-name").textContent = level.name;
   $("#side-hint").textContent = level.hint;
   $("#perfect-description").textContent =
-    `Clear in ${level.par} shot${level.par === 1 ? "" : "s"}, with no empty shots${level.perfectBounces ? ` and at least ${level.perfectBounces} reflection${level.perfectBounces === 1 ? "" : "s"}` : ""}.`;
+    `Three stars: ${level.par} shot${level.par === 1 ? "" : "s"}, no empty pulses, ${Math.round((level.starPrecision ?? 0.72) * 100)}% central accuracy${level.requiredMirrors ? ` and ${level.requiredMirrors}+ mirror banks per hit` : ""}. Mastery: ${Math.round((level.masteryPrecision ?? 0.88) * 100)}% accuracy.`;
   const best = save.results[id];
   $("#level-best").innerHTML = best
-    ? `PERSONAL BEST<br><b>${best.shots} SHOT${best.shots === 1 ? "" : "S"} · ${starText(best.stars)}</b><br>${number(best.score)} POINTS ${best.perfect ? "· PERFECT ✧" : ""}`
+    ? `${best.revision === 1 ? "LEGACY BEST / V1" : "PERSONAL BEST"}<br><b>${best.shots} SHOT${best.shots === 1 ? "" : "S"} · ${starText(best.stars)}</b><br>${number(best.score)} POINTS ${best.perfect ? "· PERFECT ✧" : ""}`
     : "NO RECORD YET<br><b>MAKE YOUR FIRST MARK.</b>";
   $("#mobile-hint").textContent = `${pad(id)} · ${level.name} — ${level.hint}`;
   $("#mirror-controls").innerHTML = arena.mirrors
@@ -326,7 +326,7 @@ function settings() {
 }
 function howTo() {
   modal(
-    `<div class="eyebrow">FIELD MANUAL / 001</div><h2 id="modal-title">Find the perfect line.</h2><div class="help-steps"><div class="help-step"><span>01</span><div><strong>Drag. Aim. Release.</strong><p>Drag from the cyan launcher toward your destination. The dotted line previews your shot. Release to fire.</p></div></div><div class="help-step"><span>02</span><div><strong>Use every angle.</strong><p>Cyan walls and mirrors reflect. Tap violet mirrors to rotate 15°. Striped barriers absorb energy.</p></div></div><div class="help-step"><span>03</span><div><strong>Clear every core.</strong><p>Amber cores are targets. Numbered cores need multiple pulses. Violet linked cores trigger a chain reaction.</p></div></div><div class="help-step"><span>04</span><div><strong>Make it count.</strong><p>Limited shots. Three stars at par, two at par + 1. A perfect clear also meets the reflection objective with no empty shots.</p></div></div></div><p class="settings-note">Desktop: ← / → aim · ↑ / ↓ fine aim · Space fire<br>M rotate next mirror · R restart · Esc pause<br>Recall ends an active pulse and keeps its shot cost.</p><div class="modal-actions"><button class="button primary" data-modal="tutorial">TRY IT IN ARENA 01 ↗</button><button class="button secondary" data-modal="close">GOT IT</button></div>`,
+    `<div class="eyebrow">FIELD MANUAL / 001</div><h2 id="modal-title">Find the perfect line.</h2><div class="help-steps"><div class="help-step"><span>01</span><div><strong>Drag. Aim. Release.</strong><p>Drag from the cyan launcher toward your destination. The dotted line previews your shot. Release to fire.</p></div></div><div class="help-step"><span>02</span><div><strong>Use every angle.</strong><p>Cyan walls and mirrors reflect. Tap violet mirrors to rotate 15°. Striped barriers absorb energy.</p></div></div><div class="help-step"><span>03</span><div><strong>Clear every core.</strong><p>Amber cores are targets. Numbered cores need multiple pulses. Violet linked cores trigger a chain reaction.</p></div></div><div class="help-step"><span>04</span><div><strong>Make it count.</strong><p>Limited shots. Three stars need par, no empty shots, central hits, and the full mirror route. A perfect clear demands even higher accuracy.</p></div></div></div><p class="settings-note">Desktop: ← / → aim · ↑ / ↓ fine aim · Space fire<br>M rotate next mirror · R restart · Esc pause<br>Recall ends an active pulse and keeps its shot cost.</p><div class="modal-actions"><button class="button primary" data-modal="tutorial">TRY IT IN ARENA 01 ↗</button><button class="button secondary" data-modal="close">GOT IT</button></div>`,
     "how",
   );
 }
@@ -346,7 +346,7 @@ function showResult() {
   }
   const next = level.id < 30 ? level.id + 1 : 0;
   modal(
-    `<div class="eyebrow">ARENA ${pad(level.id)} / CIRCUIT COMPLETE</div><h2 id="modal-title">${r.perfect ? "Perfectly executed." : "Angle secured."}</h2><div class="result-stars" aria-label="${r.stars} stars">${"★".repeat(r.stars)}<span class="empty">${"☆".repeat(3 - r.stars)}</span></div><p>${level.name} · ${TIERS[level.tier].name}</p><div class="result-grid"><div><small>SHOTS / PAR ${level.par}</small><strong>${pad(r.shots)}</strong></div><div><small>ARENA SCORE</small><strong>${number(r.score)}</strong></div><div><small>REFLECTIONS</small><strong>${pad(arena.bounces)}</strong></div><div><small>PERSONAL BEST</small><strong>${pad(save.results[level.id].shots)} <span style="font-size:10px">SHOTS</span></strong></div></div>${r.perfect ? '<span class="result-tag">✧ PERFECT CLEAR</span>' : old && r.score > old.score ? '<span class="result-tag">NEW PERSONAL BEST ↗</span>' : ""}${level.id === 12 || level.id === 24 || level.id === 30 ? '<p class="settings-note">A new one-shot challenge is now unlocked.</p>' : ""}<div class="modal-actions">${next ? '<button class="button primary" data-modal="next">NEXT ARENA <span>↗</span></button>' : level.id === 30 ? '<button class="button primary" data-modal="complete">COMPLETE THE CIRCUIT ↗</button>' : '<button class="button primary" data-modal="levels">BACK TO ARENAS ↗</button>'}<button class="button secondary" data-modal="restart">REPLAY ARENA ↻</button>${next ? '<button class="text-button" data-modal="levels">ALL ARENAS ←</button>' : ""}</div>`,
+    `<div class="eyebrow">ARENA ${pad(level.id)} / CIRCUIT COMPLETE</div><h2 id="modal-title">${r.perfect ? "Perfectly executed." : "Angle secured."}</h2><div class="result-stars" aria-label="${r.stars} stars">${"★".repeat(r.stars)}<span class="empty">${"☆".repeat(3 - r.stars)}</span></div><p>${level.name} · ${TIERS[level.tier].name}</p><p class="settings-note">CENTRAL ACCURACY ${Math.floor(r.accuracy * 100 + 1e-6)}% / 3★ ${Math.round((level.starPrecision ?? 0.72) * 100)}%<br>${r.reflectionMastery ? "MIRROR ROUTE CONFIRMED" : "REFLECTION MASTERY INCOMPLETE"} · MASTERY ${Math.round((level.masteryPrecision ?? 0.88) * 100)}%</p><div class="result-grid"><div><small>SHOTS / PAR ${level.par}</small><strong>${pad(r.shots)}</strong></div><div><small>ARENA SCORE</small><strong>${number(r.score)}</strong></div><div><small>REFLECTIONS</small><strong>${pad(arena.bounces)}</strong></div><div><small>PERSONAL BEST</small><strong>${pad(save.results[level.id].shots)} <span style="font-size:10px">SHOTS</span></strong></div></div>${r.perfect ? '<span class="result-tag">✧ PERFECT CLEAR</span>' : old && r.score > old.score ? '<span class="result-tag">NEW PERSONAL BEST ↗</span>' : ""}${level.id === 12 || level.id === 24 || level.id === 30 ? '<p class="settings-note">A new one-shot challenge is now unlocked.</p>' : ""}<div class="modal-actions">${next ? '<button class="button primary" data-modal="next">NEXT ARENA <span>↗</span></button>' : level.id === 30 ? '<button class="button primary" data-modal="complete">COMPLETE THE CIRCUIT ↗</button>' : '<button class="button primary" data-modal="levels">BACK TO ARENAS ↗</button>'}<button class="button secondary" data-modal="restart">REPLAY ARENA ↻</button>${next ? '<button class="text-button" data-modal="levels">ALL ARENAS ←</button>' : ""}</div>`,
     "clear",
     { close: false },
   );
@@ -369,7 +369,7 @@ function completion() {
 }
 function credits() {
   modal(
-    `<div class="eyebrow">AN INDEPENDENT ARCADE ORIGINAL</div><h2 id="modal-title">RICOCHET ZERO</h2><p>Every angle matters.</p><div class="rule"></div><p>Developed & published by</p><div class="credit-wordmark">BLACKHOUSE</div><p class="settings-note">ARCADE DIVISION</p><p>Original game design, procedural visuals, handcrafted arenas, and synthesized arcade sound.</p><p class="settings-note">Built with HTML5 Canvas, JavaScript, and Web Audio.<br>No third-party artwork or music.<br>Version 1.0 · © 2026 BlackHouse</p><div class="modal-actions"><button class="button primary" data-modal="close">BACK TO THE LIGHT ↗</button></div>`,
+    `<div class="eyebrow">AN INDEPENDENT ARCADE ORIGINAL</div><h2 id="modal-title">RICOCHET ZERO</h2><p>Every angle matters.</p><div class="rule"></div><p>Developed & published by</p><div class="credit-wordmark">BLACKHOUSE</div><p class="settings-note">ARCADE DIVISION</p><p>Original game design, procedural visuals, handcrafted arenas, and synthesized arcade sound.</p><p class="settings-note">Built with HTML5 Canvas, JavaScript, and Web Audio.<br>No third-party artwork or music.<br>Version 1.1 · © 2026 BlackHouse</p><div class="modal-actions"><button class="button primary" data-modal="close">BACK TO THE LIGHT ↗</button></div>`,
     "credits",
   );
 }
@@ -649,6 +649,9 @@ if (new URLSearchParams(location.search).has("qa"))
       time: arena?.time,
       status: arena?.status,
       shots: arena?.shots,
+      mirrorBounces: arena?.mirrorBounces,
+      wallBounces: arena?.wallBounces,
+      accuracy: arena?.aimHits ? arena.precisionTotal / arena.aimHits : 0,
       targets: arena?.targets.map((t) => ({ x: t.x, y: t.y, hp: t.hp })),
       mirrors: arena?.mirrors.map((m) => ({
         x: m.x,

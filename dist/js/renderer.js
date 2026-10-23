@@ -228,7 +228,7 @@ export class Renderer {
           1,
         );
       } else {
-        line(c, a, z, "#283b42", 12);
+        line(c, a, z, "#283b42", 8);
         line(c, a, z, "#657279", 1);
         const len = distance(a, z);
         for (let d = 8; d < len - 5; d += 12) {
@@ -242,7 +242,7 @@ export class Renderer {
           c.restore();
         }
         for (const e of [a, z]) {
-          poly(c, e.x, e.y, 6, 4, Math.PI / 4);
+          poly(c, e.x, e.y, 4, 4, Math.PI / 4);
           c.fillStyle = "#536065";
           c.fill();
         }
@@ -286,12 +286,24 @@ export class Renderer {
         );
       }
       line(c, a, b, "#09171c", 9);
-      line(c, a, b, color, 3, 10);
+      line(c, a, b, color, 4, 10);
       line(c, a, b, "#ddfff6", 0.8);
       for (const e of [a, b]) {
         poly(c, e.x, e.y, 3, 4, Math.PI / 4);
         c.fillStyle = color;
         c.fill();
+      }
+      if (m.kind === "wall") {
+        c.save();
+        c.translate(m.x, m.y);
+        c.rotate(m.angle);
+        c.strokeStyle = C.cyan;
+        c.lineWidth = 1;
+        c.strokeRect(-m.length / 2, -4, m.length, 8);
+        c.restore();
+        c.font = "6px monospace";
+        c.fillStyle = C.cyan;
+        c.fillText("BANK", m.x + 8, m.y + 16);
       }
       c.fillStyle = "#102028";
       c.beginPath();

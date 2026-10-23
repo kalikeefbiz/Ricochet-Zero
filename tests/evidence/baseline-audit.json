@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "First light",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 2,
+    "name": "A different angle",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 3,
+    "name": "The turning point",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 4,
+    "name": "Through line",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 5,
+    "name": "Sidewinder",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 6,
+    "name": "Double take",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 7,
+    "name": "Change of mind",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 8,
+    "name": "Cross current",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 9,
+    "name": "Switchback",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 10,
+    "name": "Counterweight",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 11,
+    "name": "Reinforced",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": false
+  },
+  {
+    "id": 12,
+    "name": "Prism corridor",
+    "unprotectedTargets": 3,
+    "totalTargets": 3,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 13,
+    "name": "Dead zone",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 14,
+    "name": "Pendulum",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 15,
+    "name": "Open window",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 16,
+    "name": "Interlock",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 17,
+    "name": "Twice as bright",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": false
+  },
+  {
+    "id": 18,
+    "name": "Narrow escape",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 19,
+    "name": "Divide the light",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 20,
+    "name": "Domino effect",
+    "unprotectedTargets": 4,
+    "totalTargets": 4,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 21,
+    "name": "Twin circuit",
+    "unprotectedTargets": 4,
+    "totalTargets": 4,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 22,
+    "name": "Resonance",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": false
+  },
+  {
+    "id": 23,
+    "name": "Threefold",
+    "unprotectedTargets": 3,
+    "totalTargets": 3,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 24,
+    "name": "Cascade chamber",
+    "unprotectedTargets": 4,
+    "totalTargets": 4,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 25,
+    "name": "Fault line",
+    "unprotectedTargets": 3,
+    "totalTargets": 3,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 26,
+    "name": "Phase shift",
+    "unprotectedTargets": 1,
+    "totalTargets": 1,
+    "zeroMirrorOneShotClear": false
+  },
+  {
+    "id": 27,
+    "name": "Critical mass",
+    "unprotectedTargets": 4,
+    "totalTargets": 4,
+    "zeroMirrorOneShotClear": true
+  },
+  {
+    "id": 28,
+    "name": "Event horizon",
+    "unprotectedTargets": 2,
+    "totalTargets": 2,
+    "zeroMirrorOneShotClear": false
+  },
+  {
+    "id": 29,
+    "name": "The last angle",
+    "unprotectedTargets": 3,
+    "totalTargets": 3,
+    "zeroMirrorOneShotClear": false
+  },
+  {
+    "id": 30,
+    "name": "Zero point",
+    "unprotectedTargets": 4,
+    "totalTargets": 4,
+    "zeroMirrorOneShotClear": false
+  }
+]
